@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/smart_gun/smart_gun_effect_1.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+key = ""
+text_key = "EFFECT_QMTATO_ITEM_SMART_GUN"
+value = 0
+custom_key = "item_smart_gun"
+storage_method = 0
+effect_sign = 3
+custom_args = [  ]
+enable_wave_start_signal = true

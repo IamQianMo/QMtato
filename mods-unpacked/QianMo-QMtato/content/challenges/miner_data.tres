@@ -1,0 +1,31 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://mods-unpacked/Darkly77-ExpandedChallenges/challenges/ex_challenge_data.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/x_mark/x_mark_data.tres" type="Resource" id=2]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/miner/miner_icon.png" type="Texture" id=3]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/miner/miner_character_data.tres" type="Resource" id=4]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/melee/luoyang_shovel/1/luoyang_shovel_data.tres" type="Resource" id=5]
+
+[resource]
+script = ExtResource( 1 )
+my_id = "chal_character_miner"
+unlocked_by_default = false
+icon = ExtResource( 3 )
+name = "CHARACTER_MINER"
+tier = 0
+value = 1
+effects = [  ]
+tracking_text = ""
+description = "CHAL_CHARACTER_MINER"
+reward_type = 0
+reward = ExtResource( 2 )
+number = 0
+stat = ""
+additional_args = [  ]
+must_win_run = true
+required_character = ExtResource( 4 )
+required_danger_number = 5
+required_weapons_and = [ ExtResource( 5 ) ]
+required_weapons_or = [  ]
+required_items_and = [  ]
+required_items_or = [  ]

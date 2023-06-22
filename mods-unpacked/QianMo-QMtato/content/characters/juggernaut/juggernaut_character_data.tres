@@ -1,0 +1,38 @@
+[gd_resource type="Resource" load_steps=21 format=2]
+
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/juggernaut/juggernaut_eyes_appearance.tres" type="Resource" id=1]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/juggernaut/juggernaut_forehead_appearance.tres" type="Resource" id=2]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/juggernaut/qmtato_juggernaut_icon.png" type="Texture" id=3]
+[ext_resource path="res://weapons/melee/fist/1/fist_data.tres" type="Resource" id=5]
+[ext_resource path="res://weapons/melee/rock/1/rock_data.tres" type="Resource" id=6]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/juggernaut/juggernaut_effect_8.tres" type="Resource" id=7]
+[ext_resource path="res://items/characters/character_data.gd" type="Script" id=8]
+[ext_resource path="res://weapons/melee/lightning_shiv/1/lightning_shiv_data.tres" type="Resource" id=9]
+[ext_resource path="res://weapons/melee/chopper/1/chopper_data.tres" type="Resource" id=10]
+[ext_resource path="res://weapons/melee/plank/1/plank_data.tres" type="Resource" id=11]
+[ext_resource path="res://weapons/melee/screwdriver/1/screwdriver_data.tres" type="Resource" id=12]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/melee/terra_blade/1/terra_blade_data.tres" type="Resource" id=18]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/melee/yongchun_fist/1/yongchun_fist_data.tres" type="Resource" id=19]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/juggernaut/juggernaut_effect_1.tres" type="Resource" id=22]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/juggernaut/juggernaut_effect_2.tres" type="Resource" id=23]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/juggernaut/juggernaut_effect_3.tres" type="Resource" id=24]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/juggernaut/juggernaut_effect_6.tres" type="Resource" id=25]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/juggernaut/juggernaut_effect_5.tres" type="Resource" id=26]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/juggernaut/juggernaut_effect_4.tres" type="Resource" id=27]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/juggernaut/juggernaut_effect_7.tres" type="Resource" id=28]
+
+[resource]
+script = ExtResource( 8 )
+my_id = "character_juggernaut"
+unlocked_by_default = true
+icon = ExtResource( 3 )
+name = "CHARACTER_JUGGERNAUT"
+tier = 0
+value = 1
+effects = [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 27 ), ExtResource( 26 ), ExtResource( 25 ), ExtResource( 28 ), ExtResource( 7 ) ]
+tracking_text = "DAMAGE_DEALT"
+max_nb = -1
+item_appearances = [ ExtResource( 1 ), ExtResource( 2 ) ]
+tags = [  ]
+wanted_tags = [ "stat_melee_damage", "stat_armor" ]
+starting_weapons = [ ExtResource( 10 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 19 ), ExtResource( 18 ) ]

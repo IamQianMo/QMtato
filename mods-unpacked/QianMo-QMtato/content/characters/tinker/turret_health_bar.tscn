@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://resources/fonts/actual/base/font_small_button.tres" type="DynamicFont" id=1]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/tinker/turret_health_bar.gd" type="Script" id=2]
+[ext_resource path="res://ui/hud/ui_lifebar_frame.png" type="Texture" id=3]
+[ext_resource path="res://ui/hud/ui_progress_bar.gd" type="Script" id=4]
+[ext_resource path="res://ui/hud/ui_lifebar_bg.png" type="Texture" id=5]
+[ext_resource path="res://ui/hud/ui_lifebar_fill.png" type="Texture" id=6]
+[ext_resource path="res://resources/fonts/actual/base/font_small_text.tres" type="DynamicFont" id=7]
+
+[node name="TurretHealthBar" type="Node2D"]
+position = Vector2( 0, 50 )
+script = ExtResource( 2 )
+
+[node name="HealthBar" type="TextureProgress" parent="."]
+margin_left = -160.0
+margin_top = -24.0
+margin_right = 160.0
+margin_bottom = 24.0
+max_value = 1.0
+step = 0.0
+value = 1.0
+texture_under = ExtResource( 5 )
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 6 )
+tint_progress = Color( 0.156863, 1, 0, 1 )
+script = ExtResource( 4 )
+progress_color = Color( 0.172549, 1, 0.145098, 1 )
+
+[node name="Hint" type="Label" parent="HealthBar"]
+anchor_left = 0.5
+anchor_top = 0.458
+anchor_right = 0.5
+anchor_bottom = 0.458
+margin_left = -64.0
+margin_top = -13.61
+margin_right = 57.0
+margin_bottom = 17.39
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "80/80"
+align = 1
+valign = 1
+
+[node name="Timer" type="Timer" parent="HealthBar"]
+wait_time = 0.1
+one_shot = true
+
+[node name="SkillTimeRemain" type="TextureProgress" parent="."]
+margin_left = -160.0
+margin_top = 30.0
+margin_right = 160.0
+margin_bottom = 78.0
+max_value = 1.0
+texture_under = ExtResource( 5 )
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 6 )
+tint_progress = Color( 1, 0, 0, 1 )
+script = ExtResource( 4 )
+progress_color = Color( 1, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="SkillTimeRemain"]
+anchor_left = 0.5
+anchor_top = 0.521
+anchor_right = 0.5
+anchor_bottom = 0.521
+margin_left = -144.0
+margin_top = -18.008
+margin_right = 24.0
+margin_bottom = 15.992
+custom_fonts/font = ExtResource( 7 )
+text = "ROCKETS CHARGE"
+align = 1
+valign = 1
+
+[node name="Hint" type="Label" parent="SkillTimeRemain"]
+anchor_left = 0.5
+anchor_top = 0.458
+anchor_right = 0.5
+anchor_bottom = 0.458
+margin_left = 26.0
+margin_top = -12.984
+margin_right = 147.0
+margin_bottom = 18.016
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "80/80"
+align = 1
+valign = 1
+
+[node name="Timer" type="Timer" parent="SkillTimeRemain"]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="HealthBar/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="SkillTimeRemain/Timer" to="." method="_on_Timer_timeout"]

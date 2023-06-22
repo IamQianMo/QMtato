@@ -1,0 +1,26 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/effects/fruit_trees/fruit_tree_effect.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/lemon_tree/lemon_tree.tscn" type="PackedScene" id=2]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/lemon_tree/lemon_tree_stats.tres" type="Resource" id=3]
+
+[resource]
+script = ExtResource( 1 )
+key = "lemon_tree"
+text_key = "EFFECT_LEMON_TREE"
+value = 1
+custom_key = ""
+storage_method = 0
+effect_sign = 3
+custom_args = [  ]
+spawn_cooldown = -1
+scene = ExtResource( 2 )
+stats = ExtResource( 3 )
+effects = [  ]
+spawn_around_player = 600
+can_be_grouped = true
+shooting_animation_speed = 1.0
+is_burning = false
+is_spawning = true
+is_random = true
+bonus_stats = [ [ "stat_percent_damage", 2, 2 ], [ "stat_melee_damage", 2, 1 ], [ "stat_crit_chance", 1, 2 ], [ "stat_ranged_damage", 1, 1 ], [ "stat_max_hp", -1, 1 ] ]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/durian_tree/durian_tree.gd" type="Script" id=1]
+[ext_resource path="res://entities/structures/turret/turret.tscn" type="PackedScene" id=2]
+[ext_resource path="res://items/all/tree/tree_icon.png" type="Texture" id=3]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/durian_tree/durian_fruit.tscn" type="PackedScene" id=4]
+
+[node name="Tree" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+fruit_scene = ExtResource( 4 )
+push_back_distance = 200.0
+
+[node name="Sprite" parent="Animation" index="0"]
+texture = ExtResource( 3 )
+
+[node name="Range" parent="." index="3"]
+collision_mask = 2

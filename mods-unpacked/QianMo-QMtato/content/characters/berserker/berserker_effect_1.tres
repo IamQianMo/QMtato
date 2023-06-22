@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/berserker/berserker_effect_1.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/UI/character_berserker_buttons/buttons_scene.tscn" type="PackedScene" id=2]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/berserker/berserker_monitor.tscn" type="PackedScene" id=3]
+
+[resource]
+script = ExtResource( 1 )
+key = "press_k_lose_health"
+text_key = "PRESS_K_LOSE_HEALTH_TEXT"
+value = 15
+custom_key = ""
+storage_method = 0
+effect_sign = 2
+custom_args = [  ]
+enable_wave_start_signal = true
+mobile_button = ExtResource( 2 )
+berserker_monitor = ExtResource( 3 )

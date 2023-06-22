@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://projectiles/player_projectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://projectiles/bullet/frame0001.png" type="Texture" id=2]
+[ext_resource path="res://projectiles/bullet/frame0000.png" type="Texture" id=3]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/ranged/face_puncher/knife_projectile.png" type="Texture" id=4]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/ranged/face_puncher/face_puncher_projectile.gd" type="Script" id=5]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+
+[sub_resource type="Animation" id=2]
+resource_name = "fire"
+length = 0.1
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.02 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ), ExtResource( 2 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.02 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_physics_process"
+} ]
+}
+
+[node name="FacePuncherProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 5 )
+enable_physics_process = true
+scale_factor = 0.8
+chance = 0.5
+duration = 3
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 1, 1 )
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Hitbox" parent="." index="1"]
+position = Vector2( -23, 1 )
+scale = Vector2( 1, 0.4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+anims/RESET = SubResource( 1 )
+anims/fire = SubResource( 2 )
+
+[editable path="Hitbox"]

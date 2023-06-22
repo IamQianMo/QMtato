@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://resources/fonts/actual/base/font_button.tres" type="DynamicFont" id=1]
+[ext_resource path="res://resources/themes/button_styles/button_hover.tres" type="StyleBox" id=2]
+[ext_resource path="res://resources/themes/button_styles/button_normal.tres" type="StyleBox" id=3]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/UI/character_berserker_buttons/button_listener.gd" type="Script" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="ButtonK" type="Button" parent="."]
+modulate = Color( 0, 1, 0.0862745, 0.705882 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -320.0
+margin_top = -280.0
+margin_right = -120.0
+margin_bottom = -80.0
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+text = "SPACE"
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="ButtonK"]
+modulate = Color( 1, 0.631373, 0.631373, 0 )
+scale = Vector2( 3.125, 3.125 )
+normal = ExtResource( 5 )
+
+[connection signal="pressed" from="ButtonK/TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]

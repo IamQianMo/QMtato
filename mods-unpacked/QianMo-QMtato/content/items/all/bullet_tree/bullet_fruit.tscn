@@ -1,0 +1,34 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/bullet_tree/bullet_fruit.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/lemon_tree/lemon_fruit_data.tres" type="Resource" id=2]
+[ext_resource path="res://items/global/item.tscn" type="PackedScene" id=3]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/lemon_tree/qmtato_lemon.png" type="Texture" id=4]
+[ext_resource path="res://weapons/ranged/sniper_gun/3/sniper_gun_3_data.tres" type="Resource" id=5]
+[ext_resource path="res://weapons/ranged/nuclear_launcher/3/nuclear_launcher_3_data.tres" type="Resource" id=6]
+[ext_resource path="res://weapons/ranged/obliterator/3/obliterator_3_data.tres" type="Resource" id=7]
+[ext_resource path="res://weapons/ranged/flamethrower/3/flamethrower_3_data.tres" type="Resource" id=8]
+[ext_resource path="res://weapons/ranged/double_barrel_shotgun/2/double_barrel_shotgun_2_data.tres" type="Resource" id=9]
+[ext_resource path="res://weapons/ranged/taser/2/taser_2_data.tres" type="Resource" id=10]
+[ext_resource path="res://weapons/ranged/rocket_launcher/2/rocket_launcher_2_data.tres" type="Resource" id=11]
+[ext_resource path="res://weapons/ranged/shuriken/2/shuriken_2_data.tres" type="Resource" id=12]
+[ext_resource path="res://weapons/ranged/slingshot/2/slingshot_2_data.tres" type="Resource" id=13]
+[ext_resource path="res://weapons/ranged/shredder/2/shredder_2_data.tres" type="Resource" id=14]
+[ext_resource path="res://weapons/ranged/wand/2/wand_2_data.tres" type="Resource" id=15]
+[ext_resource path="res://weapons/ranged/medical_gun/2/medical_gun_2_data.tres" type="Resource" id=16]
+[ext_resource path="res://weapons/ranged/crossbow/2/crossbow_data_2.tres" type="Resource" id=17]
+[ext_resource path="res://weapons/ranged/laser_gun/2/laser_gun_2_data.tres" type="Resource" id=18]
+[ext_resource path="res://weapons/ranged/ghost_scepter/2/ghost_scepter_2_data.tres" type="Resource" id=19]
+
+[node name="Consumable" instance=ExtResource( 3 )]
+z_index = 100
+script = ExtResource( 1 )
+consumable_data_export = ExtResource( 2 )
+weapon_datas = [ ExtResource( 17 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 5 ), ExtResource( 15 ), ExtResource( 10 ) ]
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="." index="2"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

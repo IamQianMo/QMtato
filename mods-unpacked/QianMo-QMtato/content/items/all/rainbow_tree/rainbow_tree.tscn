@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://entities/structures/turret/turret.tscn" type="PackedScene" id=1]
+[ext_resource path="res://items/all/tree/tree_icon.png" type="Texture" id=2]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/rainbow_tree/rainbow_fruit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/rainbow_tree/rainbow_tree.gd" type="Script" id=4]
+
+[node name="RainboxTree" instance=ExtResource( 1 )]
+scale = Vector2( 1.5, 1.5 )
+script = ExtResource( 4 )
+fruit_scene = ExtResource( 3 )
+push_back_distance = 200.0
+
+[node name="Sprite" parent="Animation" index="0"]
+material = null
+texture = ExtResource( 2 )
+
+[node name="Range" parent="." index="3"]
+collision_mask = 2

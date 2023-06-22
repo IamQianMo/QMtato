@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://items/global/item.tscn" type="PackedScene" id=1]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/plum_tree/plum_fruit.gd" type="Script" id=2]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/plum_tree/qmtato_plum.png" type="Texture" id=3]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/plum_tree/plum_fruit_data.tres" type="Resource" id=4]
+[ext_resource path="res://resources/shaders/outline_shadermat.tres" type="Material" id=5]
+
+[node name="Consumable" instance=ExtResource( 1 )]
+z_index = 100
+script = ExtResource( 2 )
+consumable_data_export = ExtResource( 4 )
+
+[node name="Sprite" parent="." index="0"]
+material = ExtResource( 5 )
+texture = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="." index="2"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

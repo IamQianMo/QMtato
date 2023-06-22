@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/juggernaut/juggernaut_effect_1.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/juggernaut/juggernaut_monitor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/UI/character_berserker_buttons/buttons_scene.tscn" type="PackedScene" id=3]
+
+[resource]
+script = ExtResource( 1 )
+key = ""
+text_key = "BLADE_FURY_DESCRIBTION"
+value = 0
+custom_key = ""
+storage_method = 0
+effect_sign = 3
+custom_args = [  ]
+enable_wave_start_signal = true
+monitor_scene = ExtResource( 2 )
+mobile_scene = ExtResource( 3 )
