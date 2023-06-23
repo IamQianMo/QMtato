@@ -6,7 +6,7 @@
 script = ExtResource( 1 )
 key = "item_lemonade"
 text_key = "EFFECT_SPECIFIC_ITEM_PRICE"
-value = -80
+value = -100
 custom_key = "specific_items_price"
 storage_method = 0
 effect_sign = 0

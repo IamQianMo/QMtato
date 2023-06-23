@@ -17,37 +17,37 @@ var mod_effects: = [
 ]
 
 
-func _init(modLoader = ModLoader):
-	ModLoaderUtils.log_info("Init", MOD_NAME)
+func _init(_modLoader = ModLoader):
+	ModLoaderLog.info("Init", MOD_NAME)
 	
 	# ModLoader 6.0
-#	dir = ModLoaderMod.get_unpacked_dir() + MOD_DIR
+	dir = ModLoaderMod.get_unpacked_dir() + MOD_DIR
 	
 	# ModLoader 5.0
-	dir = modLoader.UNPACKED_DIR + MOD_DIR
+#	dir = modLoader.UNPACKED_DIR + MOD_DIR
 	
 	ext_dir = dir + "extensions/"
 	trans_dir = dir + "translations/"
 	
 	# ModLoader 6.0
-#	ModLoaderMod.install_script_extension(ext_dir + "singletons/item_service.gd")
-#	ModLoaderMod.install_script_extension(ext_dir + "singletons/run_data.gd")
-#	ModLoaderMod.install_script_extension(ext_dir + "main.gd")
-#
-#	ModLoaderMod.add_translation(trans_dir + "languages/mod_translation.zh.translation")
-#	ModLoaderMod.add_translation(trans_dir + "languages/mod_translation.en.translation")
+	ModLoaderMod.install_script_extension(ext_dir + "singletons/item_service.gd")
+	ModLoaderMod.install_script_extension(ext_dir + "singletons/run_data.gd")
+	ModLoaderMod.install_script_extension(ext_dir + "main.gd")
+	
+	ModLoaderMod.add_translation(trans_dir + "languages/mod_translation.zh.translation")
+	ModLoaderMod.add_translation(trans_dir + "languages/mod_translation.en.translation")
 	
 	# ModLoader 5.0
-	modLoader.install_script_extension(ext_dir + "singletons/item_service.gd")
-	modLoader.install_script_extension(ext_dir + "singletons/run_data.gd")
-	modLoader.install_script_extension(ext_dir + "main.gd")
-	
-	modLoader.add_translation_from_resource(trans_dir + "languages/mod_translation.zh.translation")
-	modLoader.add_translation_from_resource(trans_dir + "languages/mod_translation.en.translation")
+#	modLoader.install_script_extension(ext_dir + "singletons/item_service.gd")
+#	modLoader.install_script_extension(ext_dir + "singletons/run_data.gd")
+#	modLoader.install_script_extension(ext_dir + "main.gd")
+#
+#	modLoader.add_translation_from_resource(trans_dir + "languages/mod_translation.zh.translation")
+#	modLoader.add_translation_from_resource(trans_dir + "languages/mod_translation.en.translation")
 
 
 func _ready():
-	ModLoaderUtils.log_info('Done', MOD_NAME)
+	ModLoaderLog.info('Done', MOD_NAME)
 	
 	QmtatoMainEventListener = load(dir + "qmtato_main_event_listener.gd").new(dir)
 	QmtatoMainEventListener.name = "QmtatoMainEventListener"
@@ -84,16 +84,16 @@ func _ready():
 	temp_content_data = load(dir + "content_data/qmtato_items_content.tres")
 	_add_content_items(qmtato_content_data, temp_content_data)
 	
-	var game_version:float = float(ProgressData.VERSION)
-	if game_version >= 1.0:
-		ContentLoader.load_data(dir + "content_data/qmtato_preview_content_data.tres", MOD_NAME)
-		temp_content_data = load(dir + "content_data/qmtato_preview_content_data.tres")
-		_add_content_items(qmtato_content_data, temp_content_data)
-		
-		temp_content_data = load(dir + "content_data/qmtato_preview_starting_weapons.tres")
-		for i in temp_content_data.weapons.size():
-			for character in temp_content_data.weapons_characters[i]:
-				character.starting_weapons.push_back(temp_content_data.weapons[i])
+	# since Brotato 1.0 START
+	ContentLoader.load_data(dir + "content_data/qmtato_preview_content_data.tres", MOD_NAME)
+	temp_content_data = load(dir + "content_data/qmtato_preview_content_data.tres")
+	_add_content_items(qmtato_content_data, temp_content_data)
+	
+	temp_content_data = load(dir + "content_data/qmtato_preview_starting_weapons.tres")
+	for i in temp_content_data.weapons.size():
+		for character in temp_content_data.weapons_characters[i]:
+			character.starting_weapons.push_back(temp_content_data.weapons[i])
+	# since Brotato 1.0 END
 	
 	var _error_progress_data_connect = ProgressData.connect("ready", self, "_on_progress_data_ready")
 

@@ -3,7 +3,7 @@
 	"namespace": "QianMo",
 	"version_number": "1.5.2",
 	"description": "Added [color=#00ff00]15[/color] new items, [color=#00ff00]9[/color] new weapons and [color=#00ff00]15[/color] new characters.",
-	"website_url": "",
+	"website_url": "https://github.com/IamQianMo/QMtato",
 	"dependencies": [
 		"Darkly77-Brotils",
 		"Darkly77-ContentLoader",
@@ -11,20 +11,49 @@
 	],
 	"extra": {
 		"godot": {
-			"incompatibilities": [],
-			"optional_dependencies": [
-				"dami-ModOptions"
-			],
 			"authors": [
 				"QianMo"
 			],
-			"compatible_mod_loader_version": "6.0.0",
-			"compatible_game_version": ["1.0.0.0"],
-			"config_defaults": {
-				"QMTATO_ENABLE_ITEMS": true,
-				"QMTATO_ENABLE_WEAPONS": true,
-				"QMTATO_ENABLE_CHARACTERS": true
-			}
+			"optional_dependencies": [
+				"dami-ModOptions"
+			],
+			"compatible_game_version": [],
+			"compatible_mod_loader_version": [
+				"6.0.0"
+			],
+			"incompatibilities": [],
+			"load_before": [],
+			"tags": [],
+			"config_schema": {
+				"title": "QMtato-Config",
+				"description": "Config for QMtato",
+				"type": "object",
+				"properties": {
+					"global_settings": {
+						"title": "Global Settings",
+						"type": "object",
+						"properties": {
+							"QMTATO_ENABLE_ITEMS": {
+								"type": "boolean",
+								"title": "Enable Mod Items",
+								"default": true
+							},
+							"QMTATO_ENABLE_WEAPONS": {
+								"type": "boolean",
+								"title": "Enable Mod Wepons",
+								"default": true
+							},
+							"QMTATO_ENABLE_CHARACTERS": {
+								"type": "boolean",
+								"title": "Enable Mod Chracters",
+								"default": true
+							}
+						}
+					}
+				}
+			},
+			"description_rich": "",
+			"image": null
 		}
 	}
 }

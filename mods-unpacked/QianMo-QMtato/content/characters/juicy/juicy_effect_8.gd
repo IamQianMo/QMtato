@@ -76,26 +76,30 @@ func _on_player_took_damage(_unit, _value, _knockback_direction, _knockback_amou
 		_main.reload_stats()
 	
 	for _i in count_left:
-		var item_value = (ItemService.get_value(RunData.current_wave, target_item.value, true, target_item is WeaponData, target_item.my_id) * (1.0 + extra_gold_lose)) as int
+		var item_value = (ItemService.get_value(RunData.current_wave, target_item.value, false, target_item is WeaponData, target_item.my_id) * (1.0 + extra_gold_lose)) as int
 		RunData.emit_signal("stat_removed", "stat_materials", item_value, - 15.0)
 		RunData.gold -= item_value
 		RunData.emit_signal("gold_changed", RunData.gold)
-	if LinkedStats.update_on_gold_chance:
-		LinkedStats.reset()
+	
+	if count_left < value:
+		if LinkedStats.update_on_gold_chance:
+			LinkedStats.reset()
 	
 	if count_left == value:
 		_no_item = true
 
 
 func get_args()->Array :
-	var punishment_level_text:String = get_colored_text_by_sign(str(get_level_required() as int), 1) + get_colored_text_by_sign(" (" + Utils.get_scaling_stat_text("stat_levels", level_factor) + ")", 0)
+	var punishment_level_text:String = get_colored_text_by_sign(str(get_level_required()), 1) + get_colored_text_by_sign(" (" + Utils.get_scaling_stat_text("stat_levels", level_factor) + ")", 0)
 	var punishment_stats_text:String = ""
 	for stat in lack_punishment_stats:
 		punishment_stats_text += "[color=red]%s %s[/color] & " % [stat[1], tr(stat[0].to_upper())]
 	punishment_stats_text = punishment_stats_text.trim_suffix(" & ")
 	
-	return [tr(target_item.name), str(value), "%.1f%%" % ((1.0 + extra_gold_lose) * 100.0), punishment_level_text, punishment_stats_text]
+	var item_value = (ItemService.get_value(RunData.current_wave, target_item.value, false, target_item is WeaponData, target_item.my_id) * (1.0 + extra_gold_lose)) as int
+	
+	return [tr(target_item.name), str(value), "%.0f%% (%d)" % [(1.0 + extra_gold_lose) * 100.0, item_value], punishment_level_text, punishment_stats_text]
 
 
-func get_level_required()->float :
-	return RunData.current_level * level_factor
+func get_level_required()->int :
+	return (RunData.current_level * level_factor) as int
