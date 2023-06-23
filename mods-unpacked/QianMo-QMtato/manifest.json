@@ -23,7 +23,14 @@
 			],
 			"incompatibilities": [],
 			"load_before": [],
-			"tags": [],
+			"tags": [
+				"characters",
+				"weapons",
+				"items",
+				"gui",
+				"new mechanics",
+				"challenges"
+			],
 			"config_schema": {
 				"title": "QMtato-Config",
 				"description": "Config for QMtato",
