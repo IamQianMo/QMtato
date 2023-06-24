@@ -37,7 +37,7 @@ func _init(_modLoader = ModLoader):
 	ModLoaderMod.add_translation(trans_dir + "languages/mod_translation.zh.translation")
 	ModLoaderMod.add_translation(trans_dir + "languages/mod_translation.en.translation")
 	
-	var _error_main = preload("res://main.gd").new()
+#	var _error_main = preload("res://main.gd").new()
 	
 	# ModLoader 5.0
 #	modLoader.install_script_extension(ext_dir + "singletons/item_service.gd")
