@@ -7,7 +7,7 @@ var _player:Player = null
 var _wave_end: = false
 
 
-func init(player:Player)->void:
+func init(player)->void:
 	_player = player
 
 

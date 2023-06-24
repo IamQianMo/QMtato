@@ -26,7 +26,7 @@ var _current_cooldown: = 6.0
 var _kill_count: = 0
 
 
-func _on_qmtato_wave_start(player:Player)->void:
+func _on_qmtato_wave_start(player)->void:
 	._on_qmtato_wave_start(player)
 	
 	_black_and_white_toggle = false

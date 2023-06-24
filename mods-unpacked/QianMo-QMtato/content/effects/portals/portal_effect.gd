@@ -18,7 +18,7 @@ var _zone_max_pos
 var _already_used_corner_id: = []
 
 
-func _on_qmtato_wave_start(player:Player)->void :
+func _on_qmtato_wave_start(player)->void :
 	._on_qmtato_wave_start(player)
 	
 	_already_used_corner_id.clear()

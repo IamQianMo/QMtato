@@ -30,12 +30,14 @@ func _init(_modLoader = ModLoader):
 	trans_dir = dir + "translations/"
 	
 	# ModLoader 6.0
+	ModLoaderMod.install_script_extension(ext_dir + "main.gd")
 	ModLoaderMod.install_script_extension(ext_dir + "singletons/item_service.gd")
 	ModLoaderMod.install_script_extension(ext_dir + "singletons/run_data.gd")
-	ModLoaderMod.install_script_extension(ext_dir + "main.gd")
-	
+
 	ModLoaderMod.add_translation(trans_dir + "languages/mod_translation.zh.translation")
 	ModLoaderMod.add_translation(trans_dir + "languages/mod_translation.en.translation")
+	
+	var _error_main = preload("res://main.gd").new()
 	
 	# ModLoader 5.0
 #	modLoader.install_script_extension(ext_dir + "singletons/item_service.gd")
