@@ -35,26 +35,20 @@
 				"description": "Config for QMtato",
 				"type": "object",
 				"properties": {
-					"global_settings": {
-						"title": "Global Settings",
-						"type": "object",
-						"properties": {
-							"QMTATO_ENABLE_ITEMS": {
-								"type": "boolean",
-								"title": "Enable Mod Items",
-								"default": true
-							},
-							"QMTATO_ENABLE_WEAPONS": {
-								"type": "boolean",
-								"title": "Enable Mod Wepons",
-								"default": true
-							},
-							"QMTATO_ENABLE_CHARACTERS": {
-								"type": "boolean",
-								"title": "Enable Mod Chracters",
-								"default": true
-							}
-						}
+					"QMTATO_ENABLE_ITEMS": {
+						"type": "boolean",
+						"title": "Enable Mod Items",
+						"default": true
+					},
+					"QMTATO_ENABLE_WEAPONS": {
+						"type": "boolean",
+						"title": "Enable Mod Wepons",
+						"default": true
+					},
+					"QMTATO_ENABLE_CHARACTERS": {
+						"type": "boolean",
+						"title": "Enable Mod Chracters",
+						"default": true
 					}
 				}
 			},
