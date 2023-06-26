@@ -3,7 +3,6 @@ extends Node
 
 const MOD_DIR = "QianMo-QMtato/"
 const MOD_NAME = "QianMo-QMtato"
-const ContentData = preload("res://mods-unpacked/Darkly77-ContentLoader/content_data.gd")
 
 var dir = ""
 var ext_dir = ""
@@ -23,9 +22,6 @@ func _init(_modLoader = ModLoader):
 	# ModLoader 6.0
 	dir = ModLoaderMod.get_unpacked_dir() + MOD_DIR
 	
-	# ModLoader 5.0
-#	dir = modLoader.UNPACKED_DIR + MOD_DIR
-	
 	ext_dir = dir + "extensions/"
 	trans_dir = dir + "translations/"
 	
@@ -33,19 +29,9 @@ func _init(_modLoader = ModLoader):
 	ModLoaderMod.install_script_extension(ext_dir + "main.gd")
 	ModLoaderMod.install_script_extension(ext_dir + "singletons/item_service.gd")
 	ModLoaderMod.install_script_extension(ext_dir + "singletons/run_data.gd")
-
+	
 	ModLoaderMod.add_translation(trans_dir + "languages/mod_translation.zh.translation")
 	ModLoaderMod.add_translation(trans_dir + "languages/mod_translation.en.translation")
-	
-#	var _error_main = preload("res://main.gd").new()
-	
-	# ModLoader 5.0
-#	modLoader.install_script_extension(ext_dir + "singletons/item_service.gd")
-#	modLoader.install_script_extension(ext_dir + "singletons/run_data.gd")
-#	modLoader.install_script_extension(ext_dir + "main.gd")
-#
-#	modLoader.add_translation_from_resource(trans_dir + "languages/mod_translation.zh.translation")
-#	modLoader.add_translation_from_resource(trans_dir + "languages/mod_translation.en.translation")
 
 
 func _ready():

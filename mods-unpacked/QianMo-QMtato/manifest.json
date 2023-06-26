@@ -5,7 +5,6 @@
 	"description": "Added [color=#00ff00]15[/color] new items, [color=#00ff00]9[/color] new weapons and [color=#00ff00]15[/color] new characters.",
 	"website_url": "https://github.com/IamQianMo/QMtato",
 	"dependencies": [
-		"Darkly77-Brotils",
 		"Darkly77-ContentLoader",
 		"Darkly77-ExpandedChallenges"
 	],
@@ -22,7 +21,7 @@
 				"6.0.0"
 			],
 			"incompatibilities": [],
-			"load_before": [],
+			"load_before": ["Darkly77-Brotils"],
 			"tags": [
 				"characters",
 				"weapons",
