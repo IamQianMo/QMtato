@@ -21,10 +21,10 @@ func _physics_process(delta):
 		var stat_name = _bonus_stats[0][0]
 		if stat_name == "free_puppet" and not _enemy_puppet_scene:
 			if randf() < 0.5:
-				_enemy_puppet_scene = preload("res://entities/units/enemies/005/5.tscn")
+				_enemy_puppet_scene = load("res://entities/units/enemies/005/5.tscn")
 				call_deferred("set_texture", preload("res://entities/units/enemies/005/5.png"))
 			else:
-				_enemy_puppet_scene = preload("res://entities/units/enemies/018/18.tscn")
+				_enemy_puppet_scene = load("res://entities/units/enemies/018/18.tscn")
 				call_deferred("set_texture", preload("res://entities/units/enemies/018/18.png"))
 		elif stat_name == "treasure_item_box" and not _consumable_to_spawn:
 			_consumable_to_spawn = ItemService.item_box if randf() < 0.98 else ItemService.legendary_item_box
@@ -69,7 +69,7 @@ func spawn_special_fruits(id:int):
 			control_enemy(enemy)
 		2:
 			var dist = rand_range(0, 1)
-			var consumable_scene = preload("res://items/consumables/consumable.tscn")
+			var consumable_scene = load("res://items/consumables/consumable.tscn")
 			var consumable = consumable_scene.instance()
 			var consumable_to_spawn = ItemService.item_box if randf() < 0.98 else ItemService.legendary_item_box
 			var pos = global_position

@@ -74,12 +74,12 @@ func _on_dig_completed(instance)->void :
 			
 		treasure_text += "%d %s" % [gold_number, tr("MATERIALS")]
 	else:
-		var scene = preload("res://entities/units/enemies/013/13.tscn")
+		var scene = load("res://entities/units/enemies/013/13.tscn")
 	
 		var entity_spawner = _main._entity_spawner
 		entity_spawner.spawn_entity_birth(EntityType.ENEMY, scene, instance.global_position, null)
 		
-		scene = preload("res://entities/units/enemies/005/5.tscn")
+		scene = load("res://entities/units/enemies/005/5.tscn")
 		entity_spawner.spawn_entity(scene, instance.global_position)
 		
 		var gold_increase = RunData.current_wave * 2 + 30

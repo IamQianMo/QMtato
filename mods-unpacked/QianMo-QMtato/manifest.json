@@ -1,10 +1,11 @@
 {
 	"name": "QMtato",
 	"namespace": "QianMo",
-	"version_number": "1.5.2",
+	"version_number": "1.5.3",
 	"description": "Added [color=#00ff00]15[/color] new items, [color=#00ff00]9[/color] new weapons and [color=#00ff00]15[/color] new characters.",
 	"website_url": "https://github.com/IamQianMo/QMtato",
 	"dependencies": [
+		"Darkly77-Brotils",
 		"Darkly77-ContentLoader",
 		"Darkly77-ExpandedChallenges"
 	],
@@ -21,7 +22,7 @@
 				"6.0.0"
 			],
 			"incompatibilities": [],
-			"load_before": ["Darkly77-Brotils"],
+			"load_before": [],
 			"tags": [
 				"characters",
 				"weapons",
