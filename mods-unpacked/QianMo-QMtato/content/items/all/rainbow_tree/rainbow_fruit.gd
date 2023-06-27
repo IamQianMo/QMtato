@@ -21,11 +21,11 @@ func _physics_process(delta):
 		var stat_name = _bonus_stats[0][0]
 		if stat_name == "free_puppet" and not _enemy_puppet_scene:
 			if randf() < 0.5:
-				_enemy_puppet_scene = preload("res://entities/units/enemies/005/5.tscn")
-				call_deferred("set_texture", preload("res://entities/units/enemies/005/5.png"))
+				_enemy_puppet_scene = load("res://entities/units/enemies/005/5.tscn")
+				call_deferred("set_texture", load("res://entities/units/enemies/005/5.png"))
 			else:
-				_enemy_puppet_scene = preload("res://entities/units/enemies/018/18.tscn")
-				call_deferred("set_texture", preload("res://entities/units/enemies/018/18.png"))
+				_enemy_puppet_scene = load("res://entities/units/enemies/018/18.tscn")
+				call_deferred("set_texture", load("res://entities/units/enemies/018/18.png"))
 		elif stat_name == "treasure_item_box" and not _consumable_to_spawn:
 			_consumable_to_spawn = ItemService.item_box if randf() < 0.98 else ItemService.legendary_item_box
 			call_deferred("set_texture", _consumable_to_spawn.icon)
