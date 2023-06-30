@@ -92,6 +92,8 @@ func _on_tiers_data_reseted()->void :
 
 func _on_progress_data_ready()->void :
 	call_deferred("check_mod_contents", true)
+	
+	ModLoaderModManager
 
 
 func check_mod_contents(is_init = false)->void :
