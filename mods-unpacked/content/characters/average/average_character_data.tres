@@ -1,0 +1,47 @@
+[gd_resource type="Resource" load_steps=30 format=2]
+
+[ext_resource path="res://items/characters/arms_dealer/arms_dealer_icon.png" type="Texture" id=1]
+[ext_resource path="res://items/characters/character_data.gd" type="Script" id=2]
+[ext_resource path="res://items/characters/arms_dealer/arms_dealer_eyes_appearance.tres" type="Resource" id=3]
+[ext_resource path="res://items/characters/arms_dealer/arms_dealer_mouth_appearance.tres" type="Resource" id=4]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/average/average_effect_11.tres" type="Resource" id=5]
+[ext_resource path="res://weapons/melee/chopper/1/chopper_data.tres" type="Resource" id=6]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/average/average_effect_12.tres" type="Resource" id=7]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/average/average_effect_13.tres" type="Resource" id=8]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/average/average_effect_1.tres" type="Resource" id=9]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/average/average_effect_7.tres" type="Resource" id=10]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/average/average_effect_5.tres" type="Resource" id=11]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/ranged/face_puncher/1/face_puncher_data.tres" type="Resource" id=12]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/average/average_effect_8.tres" type="Resource" id=13]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/average/average_effect_9.tres" type="Resource" id=14]
+[ext_resource path="res://weapons/melee/fist/1/fist_data.tres" type="Resource" id=15]
+[ext_resource path="res://weapons/melee/lightning_shiv/1/lightning_shiv_data.tres" type="Resource" id=16]
+[ext_resource path="res://weapons/melee/plank/1/plank_data.tres" type="Resource" id=17]
+[ext_resource path="res://weapons/melee/rock/1/rock_data.tres" type="Resource" id=18]
+[ext_resource path="res://weapons/melee/screwdriver/1/screwdriver_data.tres" type="Resource" id=19]
+[ext_resource path="res://weapons/ranged/double_barrel_shotgun/1/double_barrel_shotgun_data.tres" type="Resource" id=20]
+[ext_resource path="res://weapons/ranged/slingshot/1/slingshot_data.tres" type="Resource" id=21]
+[ext_resource path="res://weapons/ranged/wand/1/wand_data.tres" type="Resource" id=22]
+[ext_resource path="res://weapons/ranged/revolver/1/revolver_data.tres" type="Resource" id=23]
+[ext_resource path="res://weapons/ranged/taser/1/taser_data.tres" type="Resource" id=24]
+[ext_resource path="res://weapons/ranged/ghost_scepter/1/ghost_scepter_data.tres" type="Resource" id=25]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/average/average_effect_10.tres" type="Resource" id=26]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/ranged/ghost_smg/1/ghost_smg_data.tres" type="Resource" id=27]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/melee/yongchun_fist/1/yongchun_fist_data.tres" type="Resource" id=28]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/ranged/contained_blast/1/contained_blast_data.tres" type="Resource" id=29]
+
+[resource]
+script = ExtResource( 2 )
+my_id = "character_average"
+unlocked_by_default = true
+icon = ExtResource( 1 )
+name = "CHARACTER_AVERAGE"
+tier = 0
+value = 1
+effects = [ ExtResource( 5 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 7 ), ExtResource( 26 ) ]
+tracking_text = "DAMAGE_DEALT"
+max_nb = -1
+item_appearances = [ ExtResource( 3 ), ExtResource( 4 ) ]
+tags = [  ]
+wanted_tags = [  ]
+starting_weapons = [ ExtResource( 6 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 23 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 12 ), ExtResource( 29 ) ]

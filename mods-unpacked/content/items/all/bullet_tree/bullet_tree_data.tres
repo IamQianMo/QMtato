@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/bullet_tree/bullet_tree_effect_1.tres" type="Resource" id=1]
+[ext_resource path="res://items/global/item_data.gd" type="Script" id=2]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/bullet_tree/qmtato_bullet_tree_icon.png" type="Texture" id=3]
+
+[resource]
+script = ExtResource( 2 )
+my_id = "item_bullet_tree"
+unlocked_by_default = true
+icon = ExtResource( 3 )
+name = "ITEM_BULLET_TREE"
+tier = 1
+value = 101
+effects = [ ExtResource( 1 ) ]
+tracking_text = ""
+max_nb = 3
+item_appearances = [  ]
+tags = [ "exploration", "economy", "fruit_tree" ]

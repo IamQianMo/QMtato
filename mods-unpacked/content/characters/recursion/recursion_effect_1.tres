@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/recursion/additional_bounce_by_stats.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+key = "qmtato_empty"
+text_key = "ADDITIONAL_BOUNCE_TEXT"
+value = 0
+custom_key = ""
+storage_method = 0
+effect_sign = 3
+custom_args = [  ]
+enable_wave_start_signal = true
+scaling_stats = [ [ "stat_luck", 0.02 ], [ "stat_range", 0.01 ] ]
+base_bounce = 4

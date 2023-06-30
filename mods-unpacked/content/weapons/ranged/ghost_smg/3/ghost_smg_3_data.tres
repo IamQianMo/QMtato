@@ -1,0 +1,27 @@
+[gd_resource type="Resource" load_steps=9 format=2]
+
+[ext_resource path="res://items/global/weapon_data.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/ranged/ghost_smg/ghost_smg.tscn" type="PackedScene" id=2]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/ranged/ghost_smg/ghost_smg_icon.png" type="Texture" id=3]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/ranged/ghost_smg/3/ghost_smg_3_stats.tres" type="Resource" id=4]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/ranged/ghost_smg/4/ghost_smg_4_data.tres" type="Resource" id=5]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/ranged/ghost_smg/3/ghost_smg_3_effect.tres" type="Resource" id=6]
+[ext_resource path="res://items/sets/gun/gun_set_data.tres" type="Resource" id=7]
+[ext_resource path="res://items/sets/ethereal/ethereal_set_data.tres" type="Resource" id=8]
+
+[resource]
+script = ExtResource( 1 )
+my_id = "weapon_ghost_smg_3"
+unlocked_by_default = true
+icon = ExtResource( 3 )
+name = "WEAPON_GHOST_SMG"
+tier = 2
+value = 74
+effects = [ ExtResource( 6 ) ]
+tracking_text = "stats_gained"
+weapon_id = "weapon_ghost_smg"
+type = 1
+sets = [ ExtResource( 8 ), ExtResource( 7 ) ]
+scene = ExtResource( 2 )
+stats = ExtResource( 4 )
+upgrades_into = ExtResource( 5 )

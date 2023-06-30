@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/juicy/juicy_effect_8.gd" type="Script" id=1]
+[ext_resource path="res://items/all/lemonade/lemonade_data.tres" type="Resource" id=2]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/juicy/juicy_effect_8_hud.tscn" type="PackedScene" id=3]
+
+[resource]
+script = ExtResource( 1 )
+key = ""
+text_key = "EFFECT_CHARACTER_JUICY"
+value = 1
+custom_key = ""
+storage_method = 0
+effect_sign = 2
+custom_args = [  ]
+enable_wave_start_signal = true
+target_item = ExtResource( 2 )
+extra_gold_lose = 0.0
+level_factor = 0.75
+lack_punishment_stats = [ [ "stat_percent_damage", 5 ], [ "stat_attack_speed", 5 ] ]
+hud_scene = ExtResource( 3 )

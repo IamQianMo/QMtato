@@ -1,0 +1,26 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/rainbow_tree/ranbow_tree_effect_1.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/rainbow_tree/rainbow_tree_stats.tres" type="Resource" id=2]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/rainbow_tree/rainbow_tree.tscn" type="PackedScene" id=3]
+
+[resource]
+script = ExtResource( 1 )
+key = "rainbow_tree"
+text_key = "EFFECT_RAINBOW_TREE"
+value = 1
+custom_key = ""
+storage_method = 0
+effect_sign = 3
+custom_args = [  ]
+spawn_cooldown = -1
+scene = ExtResource( 3 )
+stats = ExtResource( 2 )
+effects = [  ]
+spawn_around_player = 600
+can_be_grouped = true
+shooting_animation_speed = 1.0
+is_burning = false
+is_spawning = true
+is_random = true
+bonus_stats = [ [ "free_puppet", 1, 3 ], [ "treasure_item_box", 1, 2 ], [ "free_turret", 1, 1 ] ]

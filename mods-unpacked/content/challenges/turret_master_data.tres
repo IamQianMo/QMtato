@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://mods-unpacked/Darkly77-ExpandedChallenges/challenges/ex_challenge_data.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/turret_master/turret_master_character_data.tres" type="Resource" id=2]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/turret_master/qmtato_turret_master_icon.png" type="Texture" id=3]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/turret_lord/turret_lord_data.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+my_id = "chal_qmtato_turret_master"
+unlocked_by_default = false
+icon = ExtResource( 3 )
+name = "CHARACTER_TURRET_MASTER"
+tier = 0
+value = 1
+effects = [  ]
+tracking_text = ""
+description = "CHAL_QMTATO_CHARACTER_TEDIORE"
+reward_type = 0
+reward = ExtResource( 4 )
+number = 0
+stat = ""
+additional_args = [  ]
+must_win_run = true
+required_character = ExtResource( 2 )
+required_danger_number = 5
+required_weapons_and = [  ]
+required_weapons_or = [  ]
+required_items_and = [  ]
+required_items_or = [  ]

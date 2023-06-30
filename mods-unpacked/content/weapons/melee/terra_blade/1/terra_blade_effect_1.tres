@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/melee/terra_blade/terra_blade_projectiles_on_hit.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/melee/terra_blade/1/terra_blade_projectile.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+key = "effect_projectiles_on_hit"
+text_key = ""
+value = 1
+custom_key = ""
+storage_method = 0
+effect_sign = 3
+custom_args = [  ]
+weapon_stats = ExtResource( 2 )
+auto_target_enemy = false

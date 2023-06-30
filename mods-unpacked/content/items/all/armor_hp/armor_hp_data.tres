@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/armor_hp/armor_hp_effect_1.tres" type="Resource" id=1]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/armor_hp/armor_hp_appearance.tres" type="Resource" id=2]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/armor_hp/armor_hp_effect_2.tres" type="Resource" id=3]
+[ext_resource path="res://items/global/item_data.gd" type="Script" id=4]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/armor_hp/armor_hp_icon.png" type="Texture" id=5]
+
+[resource]
+script = ExtResource( 4 )
+my_id = "item_armor_hp"
+unlocked_by_default = true
+icon = ExtResource( 5 )
+name = "ITEM_ARMOR_HP"
+tier = 3
+value = 103
+effects = [ ExtResource( 1 ), ExtResource( 3 ) ]
+tracking_text = ""
+max_nb = 1
+item_appearances = [ ExtResource( 2 ) ]
+tags = [ "stat_max_hp" ]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://projectiles/player_projectile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://projectiles/nuclear_launcher/nuclear_rocket.png" type="Texture" id=2]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/crack_shot/crack_shot_projectile.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+
+[sub_resource type="Animation" id=2]
+resource_name = "fire"
+length = 0.1
+step = 0.02
+
+[node name="NuclearProjectile" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+enable_physics_process = true
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="Collision" parent="Hitbox" index="0"]
+position = Vector2( 21, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+autoplay = "fire"
+anims/RESET = SubResource( 1 )
+anims/fire = SubResource( 2 )
+
+[editable path="Hitbox"]

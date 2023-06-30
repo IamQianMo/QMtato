@@ -1,0 +1,27 @@
+[gd_resource type="Resource" load_steps=9 format=2]
+
+[ext_resource path="res://items/global/weapon_data.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/melee/yongchun_fist/yongchun_fist_icon.png" type="Texture" id=2]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/melee/yongchun_fist/yongchun_fist.tscn" type="PackedScene" id=3]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/melee/yongchun_fist/3/yongchun_fist_3_stats.tres" type="Resource" id=4]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/melee/yongchun_fist/4/yongchun_fist_4_data.tres" type="Resource" id=5]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/melee/yongchun_fist/yongchun_effect.tres" type="Resource" id=6]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/melee/yongchun_fist/yongchun_fist_effect_doge.tres" type="Resource" id=7]
+[ext_resource path="res://items/sets/unarmed/unarmed_set_data.tres" type="Resource" id=8]
+
+[resource]
+script = ExtResource( 1 )
+my_id = "yongchun_fist_3"
+unlocked_by_default = true
+icon = ExtResource( 2 )
+name = "WEAPON_YONGCHUN"
+tier = 2
+value = 45
+effects = [ ExtResource( 7 ), ExtResource( 6 ) ]
+tracking_text = ""
+weapon_id = "yongchun_fist"
+type = 0
+sets = [ ExtResource( 8 ) ]
+scene = ExtResource( 3 )
+stats = ExtResource( 4 )
+upgrades_into = ExtResource( 5 )

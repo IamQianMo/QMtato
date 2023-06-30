@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://mods-unpacked/QianMo-QMtato/translations/languages/mod_translation.zh.translation", "res://mods-unpacked/QianMo-QMtato/translations/languages/mod_translation.en.translation" ]
+
+source_file="res://mods-unpacked/QianMo-QMtato/translations/languages/mod_translation.csv"
+dest_files=[ "res://mods-unpacked/QianMo-QMtato/translations/languages/mod_translation.zh.translation", "res://mods-unpacked/QianMo-QMtato/translations/languages/mod_translation.en.translation" ]
+
+[params]
+
+compress=true
+delimiter=0

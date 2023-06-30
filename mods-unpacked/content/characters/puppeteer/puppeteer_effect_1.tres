@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/puppeteer/puppeteer_effect_1.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/puppeteer/puppet_area.tscn" type="PackedScene" id=2]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/puppeteer/puppeteer_monitor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/UI/character_berserker_buttons/buttons_scene.tscn" type="PackedScene" id=4]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/puppeteer/puppeteer_range.tscn" type="PackedScene" id=5]
+
+[resource]
+script = ExtResource( 1 )
+key = ""
+text_key = "PUPPETEER_EFFECT"
+value = 0
+custom_key = ""
+storage_method = 0
+effect_sign = 3
+custom_args = [  ]
+enable_wave_start_signal = true
+puppet_area_scene = ExtResource( 2 )
+monitor_scene = ExtResource( 3 )
+mobile_scene = ExtResource( 4 )
+range_scene = ExtResource( 5 )
+chance = 0.2
+health_factor = 2.0
+damage_factor = 3.0
+speed_factor = 1.8
+health_scaling = [ [ "stat_max_hp", 0.02 ] ]
+damage_scaling = [ [ "stat_melee_damage", 0.02 ], [ "stat_elemental_damage", 0.04 ], [ "stat_ranged_damage", 0.04 ] ]
+speed_scaling = [ [ "stat_speed", 0.02 ] ]
+max_puppets = 12

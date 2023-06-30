@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/effect_gyrojets/gyrojets_weapon_effect.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/ranged/contained_blast/constained_blast_exploding_effect.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+key = "gyrojets_effect"
+text_key = "EFFECT_QMTATO_GYROJETS_WEAPON"
+value = 0
+custom_key = ""
+storage_method = 0
+effect_sign = 3
+custom_args = [  ]
+exploding_effect = ExtResource( 2 )
+stick = true
+explode_instantly = true
+damage_increase_per_stack = 0.5
+explosion_delay = 2.0
+type = 0

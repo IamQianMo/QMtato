@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://weapons/ranged/ranged_weapon.gd" type="Script" id=1]
+[ext_resource path="res://resources/shaders/outline.gdshader" type="Shader" id=2]
+[ext_resource path="res://particles/burning/torch_burning_particles.tscn" type="PackedScene" id=3]
+[ext_resource path="res://weapons/weapon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/ranged/face_puncher/qmtato_face_puncher_body.png" type="Texture" id=5]
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = ExtResource( 2 )
+shader_param/width = 2.0
+shader_param/outline_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="CircleShape2D" id=1]
+resource_local_to_scene = true
+radius = 72.4431
+
+[node name="DoubleBarrelShotgun" instance=ExtResource( 4 )]
+script = ExtResource( 1 )
+outline_shader_mat = SubResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 24, 0 )
+texture = ExtResource( 5 )
+
+[node name="Muzzle" parent="Sprite" index="1"]
+position = Vector2( 5, 0 )
+
+[node name="BurningParticles" parent="Sprite/Muzzle" index="0" instance=ExtResource( 3 )]
+position = Vector2( 40, -10 )
+scale = Vector2( 0.5, 0.5 )
+amount = 5
+
+[node name="Attach" parent="." index="1"]
+position = Vector2( -6, 13 )
+
+[node name="CollisionShape2D" parent="Range" index="0"]
+shape = SubResource( 1 )
+
+[editable path="Sprite/Hitbox"]

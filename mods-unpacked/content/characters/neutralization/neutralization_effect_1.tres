@@ -1,0 +1,26 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/neutralization/neutralization_effect_1.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/neutralization/neutralization_monitor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/neutralization/neutralization_enemy_monitor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/UI/character_neutralization_ui/netralization_bagua_scene.tscn" type="PackedScene" id=4]
+
+[resource]
+script = ExtResource( 1 )
+key = ""
+text_key = "NEUTRALIZATION_DETAIL_TEXT"
+value = 0
+custom_key = ""
+storage_method = 0
+effect_sign = 3
+custom_args = [  ]
+enable_wave_start_signal = true
+monitor_scene = ExtResource( 2 )
+enemy_monitor_scene = ExtResource( 3 )
+ui_scene = ExtResource( 4 )
+change_toggle_time = 6.0
+scaling_stats = [ [ "stat_luck", 2.0 ] ]
+base_damage = 40
+enemy_bonus_speed = 100.0
+cooldown_scaling = 0.33
+skill_count_needed = 75

@@ -1,0 +1,291 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://resources/shaders/flash.gdshader" type="Shader" id=1]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/tinker/qmtato_pocket_factory.png" type="Texture" id=2]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/tinker/turret_pocket_factory.gd" type="Script" id=3]
+[ext_resource path="res://entities/structures/turret/turret_shoot_animation.tres" type="Animation" id=4]
+[ext_resource path="res://overlap/hurtbox.gd" type="Script" id=5]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/tinker/turret_health_bar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://projectiles/rocket/explosion.png" type="Texture" id=7]
+[ext_resource path="res://weapons/ranged/shredder/4/shredder_4_effect.tres" type="Resource" id=8]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/tinker/cluster_rockets_projectile.tscn" type="PackedScene" id=9]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/flash_color = Color( 1, 1, 1, 1 )
+shader_param/flash_modifier = 0.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 40.0
+
+[sub_resource type="Animation" id=3]
+length = 0.4
+loop = true
+step = 0.2
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Animation:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Animation:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -24, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Animation:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Animation:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Animation:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -24 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Animation:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "death"
+length = 1.05
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Animation/Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 0.297302 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.34902, 0.34902, 0.34902, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Animation/Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 0.34151 ),
+"update": 0,
+"values": [ Vector2( 0.4, 0.4 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Animation/Sprite:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.25, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "deactivate_burning_spread"
+}, {
+"args": [  ],
+"method": "death_animation_finished"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "idle"
+loop = true
+step = 0.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Animation:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Animation:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -24, -0.25, 0, 0.25, 0, -19, -0.25, 0, 0.25, 0, -24, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Animation:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1.15, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Animation:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0.85, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 169.706
+
+[sub_resource type="CircleShape2D" id=7]
+
+[node name="Turret" type="KinematicBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 3 )
+max_health = 20
+health_bar_scene = ExtResource( 6 )
+explosion_effect = ExtResource( 8 )
+cluster_rockets_scene = ExtResource( 9 )
+
+[node name="Animation" type="Node2D" parent="."]
+position = Vector2( 0, -24 )
+
+[node name="Sprite" type="Sprite" parent="Animation"]
+material = SubResource( 1 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+
+[node name="Muzzle" type="Position2D" parent="Animation"]
+position = Vector2( 0, -14 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, -8 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/RESET = SubResource( 3 )
+anims/death = SubResource( 4 )
+anims/idle = SubResource( 5 )
+anims/shoot = ExtResource( 4 )
+
+[node name="Range" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 5
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+rotation = 1.5708
+shape = SubResource( 6 )
+
+[node name="Hurtbox" type="Area2D" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+collision_layer = 0
+collision_mask = 20
+monitorable = false
+script = ExtResource( 5 )
+
+[node name="Collision" type="CollisionShape2D" parent="Hurtbox"]
+scale = Vector2( 13, 13 )
+shape = SubResource( 7 )
+
+[node name="Repairingbox" type="Area2D" parent="."]
+show_behind_parent = true
+scale = Vector2( 2.5, 2.5 )
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="Sprite" type="Sprite" parent="Repairingbox"]
+modulate = Color( 0.31, 1, 0.27, 0.5 )
+scale = Vector2( 1.25, 1.25 )
+texture = ExtResource( 7 )
+
+[node name="Collision" type="CollisionShape2D" parent="Repairingbox"]
+scale = Vector2( 13, 13 )
+shape = SubResource( 7 )
+
+[node name="ReparingTimer" type="Timer" parent="."]
+
+[node name="InvincibilityTimer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[node name="BonusAttackTimer" type="Timer" parent="."]
+
+[node name="ClusterRocketsTimer" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="FlashTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="body_entered" from="Range" to="." method="_on_Range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_Range_body_exited"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="body_entered" from="Repairingbox" to="." method="_on_Repairingbox_body_entered"]
+[connection signal="body_exited" from="Repairingbox" to="." method="_on_Repairingbox_body_exited"]
+[connection signal="timeout" from="ReparingTimer" to="." method="_on_ReparingTimer_timeout"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]
+[connection signal="timeout" from="BonusAttackTimer" to="." method="_on_BonusAttackTimer_timeout"]
+[connection signal="timeout" from="ClusterRocketsTimer" to="." method="_on_ClusterRocketsTimer_timeout"]
+[connection signal="timeout" from="FlashTimer" to="." method="_on_FlashTimer_timeout"]

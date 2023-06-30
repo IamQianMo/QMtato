@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/melee/terra_blade/projectile/terra_blade_player_projectile.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/melee/terra_blade/projectile/qmtato_terra_projectile.png" type="Texture" id=2]
+[ext_resource path="res://projectiles/player_projectile.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+
+[sub_resource type="Animation" id=2]
+resource_name = "fire"
+length = 0.1
+step = 0.02
+
+[node name="NuclearProjectile" instance=ExtResource( 3 )]
+modulate = Color( 1, 1, 1, 0.313726 )
+scale = Vector2( 0.7, 0.7 )
+script = ExtResource( 1 )
+enable_physics_process = true
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="Hitbox" parent="." index="1"]
+scale = Vector2( 1.5, 3.002 )
+
+[node name="Collision" parent="Hitbox" index="0"]
+position = Vector2( 21.1667, 6.66667 )
+scale = Vector2( 1, 1.3 )
+
+[node name="DestroyTimer" parent="." index="3"]
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+autoplay = "fire"
+anims/RESET = SubResource( 1 )
+anims/fire = SubResource( 2 )
+
+[editable path="Hitbox"]

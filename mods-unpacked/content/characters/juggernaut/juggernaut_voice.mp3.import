@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/juggernaut_voice.mp3-cd1e43bba655548f7bf79da43e6cd0a8.mp3str"
+
+[deps]
+
+source_file="res://mods-unpacked/QianMo-QMtato/content/characters/juggernaut/juggernaut_voice.mp3"
+dest_files=[ "res://.import/juggernaut_voice.mp3-cd1e43bba655548f7bf79da43e6cd0a8.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

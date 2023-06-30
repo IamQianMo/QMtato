@@ -1,0 +1,35 @@
+[gd_resource type="Resource" load_steps=18 format=2]
+
+[ext_resource path="res://items/all/wisdom/wisdom_appearance.tres" type="Resource" id=1]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/neutralization/qmtato_character_neutralization_icon.png" type="Texture" id=3]
+[ext_resource path="res://weapons/melee/spear/1/spear_data.tres" type="Resource" id=4]
+[ext_resource path="res://weapons/melee/stick/1/stick_data.tres" type="Resource" id=5]
+[ext_resource path="res://weapons/melee/knife/1/knife_data.tres" type="Resource" id=6]
+[ext_resource path="res://weapons/melee/ghost_flint/1/ghost_flint_data.tres" type="Resource" id=7]
+[ext_resource path="res://items/characters/character_data.gd" type="Script" id=8]
+[ext_resource path="res://weapons/melee/dagger/1/dagger_data.tres" type="Resource" id=9]
+[ext_resource path="res://weapons/melee/pruner/1/pruner_data.tres" type="Resource" id=10]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/neutralization/neutralization_effect_5.tres" type="Resource" id=11]
+[ext_resource path="res://items/characters/generalist/generalist_eyes_appearance.tres" type="Resource" id=12]
+[ext_resource path="res://items/all/gnome/gnome_appearance.tres" type="Resource" id=13]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/neutralization/neutralization_effect_1.tres" type="Resource" id=17]
+[ext_resource path="res://weapons/melee/hand/1/hand_data.tres" type="Resource" id=18]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/neutralization/neutralization_effect_2.tres" type="Resource" id=19]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/neutralization/neutralization_effect_3.tres" type="Resource" id=21]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/neutralization/neutralization_effect_4.tres" type="Resource" id=22]
+
+[resource]
+script = ExtResource( 8 )
+my_id = "character_neutralization"
+unlocked_by_default = true
+icon = ExtResource( 3 )
+name = "CHARACTER_NEUTRALIZATION"
+tier = 0
+value = 1
+effects = [ ExtResource( 17 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 11 ) ]
+tracking_text = "DAMAGE_DEALT"
+max_nb = -1
+item_appearances = [ ExtResource( 1 ), ExtResource( 13 ), ExtResource( 12 ) ]
+tags = [  ]
+wanted_tags = [ "stat_luck" ]
+starting_weapons = [ ExtResource( 9 ), ExtResource( 7 ), ExtResource( 18 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 4 ), ExtResource( 5 ) ]
