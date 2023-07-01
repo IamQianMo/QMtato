@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=2]
-
-[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/berserker/berserker_explosion_effect.tres" type="Resource" id=1]
-[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/berserker/berserker_monitor.gd" type="Script" id=2]
-
-[node name="Node2D" type="Node2D"]
-script = ExtResource( 2 )
-exploding_effect = ExtResource( 1 )
