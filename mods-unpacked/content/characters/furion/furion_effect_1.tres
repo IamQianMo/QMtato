@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/furion/furion_effect_1.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+key = ""
+text_key = "EFFECT_CHARACTER_FURION"
+value = 0
+custom_key = ""
+storage_method = 0
+effect_sign = 3
+custom_args = [  ]
+enable_wave_start_signal = true
+health_scaling = [ [ "stat_max_hp", 3.0 ] ]
+damage_scaling = [ [ "stat_melee_damage", 2.0 ], [ "stat_ranged_damage", 1.0 ], [ "stat_percent_damage", 0.2 ] ]
+speed_scaling = [ [ "stat_speed", 1.0 ] ]
+armor_scaling = [ [ "stat_armor", 0.25 ] ]
+base_damage = 10
