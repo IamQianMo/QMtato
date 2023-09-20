@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/duelist/duelist_effect_1.gd" type="Script" id=1]
+[ext_resource path="res://entities/units/enemies/034/34.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/units/enemies/021/21.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/units/enemies/028/28.tscn" type="PackedScene" id=4]
+[ext_resource path="res://entities/units/enemies/032/32.tscn" type="PackedScene" id=5]
+
+[resource]
+script = ExtResource( 1 )
+key = "qmtato_duelist_effect"
+text_key = "QMTATO_DUELIST_EFFECT"
+value = 1
+custom_key = ""
+storage_method = 0
+effect_sign = 3
+custom_args = [  ]
+enable_wave_start_signal = true
+enemy_scenes = [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ]

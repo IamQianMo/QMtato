@@ -19,34 +19,50 @@ func _on_qmtato_wave_start(player)->void :
 	entity_spawner.connect("neutral_spawned", self, "_on_neutral_spawned")
 
 
-func add_weapon(instance:Weapon, original_weapon:Weapon, pos:int, parent, instance_position:Vector2)->void :
+func add_weapon(weapon_data:WeaponData, pos:int, parent, instance_position:Vector2)->void :
+	var instance:Weapon = weapon_data.scene.instance()
+	
 	instance.weapon_pos = pos
-	instance.stats = original_weapon.stats
-	instance.call_deferred("init_stats", true)
+	instance.stats = weapon_data.stats.duplicate()
+	instance.weapon_id = weapon_data.weapon_id
+	instance.tier = weapon_data.tier
+	instance.weapon_sets = weapon_data.sets
+	instance.connect("tracked_value_updated", weapon_data, "on_tracked_value_updated")
+	instance._parent = _player
 
-	for effect in original_weapon.effects:
-		instance.effects.push_back(effect.duplicate())
+	for effect in weapon_data.effects:
+		var duplicated_effect = effect.duplicate()
+		instance.effects.push_back(duplicated_effect)
+		
+		if not duplicated_effect.get_id().find("qmtato_effect") == -1:
+			duplicated_effect._on_qmtato_wave_start(_player)
+		elif not duplicated_effect.get_id().find("VLM_effect") == -1:
+			duplicated_effect.on_wave_start(_player)
 	
 	parent.add_child(instance)
-	instance._parent = original_weapon._parent
 	
 	instance.apply_scale(Vector2(1.2, 1.2))
 	instance_position.x += 30 if rand_range(0, 1) < 0.5 else -30
 	instance_position.y -= rand_range(-20, 20)
 	instance.global_position = instance_position
+	
+	instance.call_deferred("init_stats", true)
 
 
 func _on_neutral_spawned(neutral) :
-	var current_weapons:Array = _player.current_weapons
-	if (current_weapons and not current_weapons.empty()): 
-		var weapon = Utils.get_rand_element(current_weapons)
-		var duplicated_weapon = weapon.duplicate()
-		add_weapon(duplicated_weapon, weapon, 0, neutral, neutral.position)
+	var weapons:Array = RunData.weapons
+	
+	if not weapons.empty(): 
+		var weapon_data:WeaponData = Utils.get_rand_element(weapons)
+		
+		add_weapon(weapon_data, 0, neutral, neutral.position)
 	
 	var movement = neutral.get_node_or_null("MovementBehavior")
-	movement.set_script(MOVEMENT_BEHAVIOR)
 	
-	movement.call_deferred("init", neutral, _player)
+	if movement:
+		movement.set_script(MOVEMENT_BEHAVIOR)
+		
+		movement.call_deferred("init", neutral, _player)
 	
 	for stat in health_scaling:
 		neutral.current_stats.health += Utils.get_stat(stat[0]) * stat[1]

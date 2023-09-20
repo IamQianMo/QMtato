@@ -23,7 +23,7 @@
 
 [resource]
 script = ExtResource( 8 )
-my_id = "character_juggernaut"
+my_id = "qmtato_character_juggernaut"
 unlocked_by_default = true
 icon = ExtResource( 3 )
 name = "CHARACTER_JUGGERNAUT"
