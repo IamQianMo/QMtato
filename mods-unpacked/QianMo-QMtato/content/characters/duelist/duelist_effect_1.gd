@@ -139,7 +139,7 @@ func _on_enemy_spawned(enemy)->void :
 	enemy.current_stats.speed = min(enemy.current_stats.speed * 0.75, _player.current_stats.speed * 0.75)
 	
 	enemy.connect("died", self, "_on_enemy_died")
-	add_weapon(Utils.get_rand_element(ItemService._tiers_data[ItemData.Tier.RARE][ItemService.TierData.WEAPONS]), enemy)
+	add_weapon(Utils.get_rand_element(ItemService._tiers_data[ItemData.Tier.UNCOMMON][ItemService.TierData.WEAPONS]), enemy)
 
 
 func _on_enemy_died(enemy)->void :
