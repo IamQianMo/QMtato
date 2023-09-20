@@ -170,7 +170,7 @@ func setup_weapon(instance)->void :
 	
 	var current_stats = instance.current_stats
 	current_stats.max_range *= 1.25
-	current_stats.damage = max(1, current_stats.damage * 0.2) as int
+	current_stats.damage = max(1, current_stats.damage * 0.15) as int
 	hitbox.set_damage(current_stats.damage, current_stats.accuracy, current_stats.crit_chance, current_stats.crit_damage, current_stats.burning_data, current_stats.is_healing)
 	
 	instance._range_shape.shape.radius *= 1.25

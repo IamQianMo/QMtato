@@ -22,6 +22,7 @@ func _on_qmtato_wave_start(player)->void :
 
 func _on_enemy_spawned(enemy)->void :
 	if randf() <= chance_weapon:
+		DUELIST_EFFECT._player = _player
 		DUELIST_EFFECT.add_random_weapon(enemy)
 
 
