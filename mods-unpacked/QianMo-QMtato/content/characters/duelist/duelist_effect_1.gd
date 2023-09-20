@@ -2,6 +2,7 @@ extends "res://mods-unpacked/QianMo-QMtato/content/effects/qmtato_effect_parent.
 
 
 export (Array, PackedScene) var enemy_scenes
+export (Array, Resource) var weapon_datas
 
 var _timer:Timer = null
 var _wave_timer:Timer = null
@@ -139,7 +140,11 @@ func _on_enemy_spawned(enemy)->void :
 	enemy.current_stats.speed = min(enemy.current_stats.speed * 0.75, _player.current_stats.speed * 0.75)
 	
 	enemy.connect("died", self, "_on_enemy_died")
-	add_weapon(Utils.get_rand_element(ItemService._tiers_data[ItemData.Tier.UNCOMMON][ItemService.TierData.WEAPONS]), enemy)
+	add_random_weapon(enemy)
+
+
+func add_random_weapon(parent)->void :
+	add_weapon(Utils.get_rand_element(weapon_datas), parent)
 
 
 func _on_enemy_died(enemy)->void :
@@ -190,10 +195,10 @@ func add_weapon(weapon, parent)->void :
 		var duplicated_effect = effect.duplicate()
 		instance.effects.push_back(duplicated_effect)
 
-		if not duplicated_effect.get_id().find("qmtato_effect") == -1:
-			duplicated_effect._on_qmtato_wave_start(_player)
-		elif not duplicated_effect.get_id().find("VLM_effect") == -1:
-			duplicated_effect.on_wave_start(_player)
+#		if not duplicated_effect.get_id().find("qmtato_effect") == -1:
+#			duplicated_effect._on_qmtato_wave_start(_player)
+#		elif not duplicated_effect.get_id().find("VLM_effect") == -1:
+#			duplicated_effect.on_wave_start(_player)
 	
 	parent.add_child(instance)
 	
@@ -202,6 +207,7 @@ func add_weapon(weapon, parent)->void :
 	instance_position.x += 30 if rand_range(0, 1) < 0.5 else -30
 	instance_position.y -= rand_range(-50, 50)
 	instance.global_position = instance_position
+
 
 
 func _on_projectile_shot(projectile:Node2D)->void :
