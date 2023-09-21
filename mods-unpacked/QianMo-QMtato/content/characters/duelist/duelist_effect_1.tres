@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=40 format=2]
+[gd_resource type="Resource" load_steps=45 format=2]
 
 [ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/duelist/duelist_effect_1.gd" type="Script" id=1]
 [ext_resource path="res://entities/units/enemies/034/34.tscn" type="PackedScene" id=2]
@@ -34,11 +34,16 @@
 [ext_resource path="res://weapons/melee/sword/2/sword_2_data.tres" type="Resource" id=32]
 [ext_resource path="res://weapons/ranged/revolver/2/revolver_2_data.tres" type="Resource" id=33]
 [ext_resource path="res://weapons/melee/hatchet/3/hatchet_3_data.tres" type="Resource" id=34]
-[ext_resource path="res://weapons/ranged/laser_gun/2/laser_gun_2_data.tres" type="Resource" id=35]
+[ext_resource path="res://weapons/ranged/laser_gun/1/laser_gun_data.tres" type="Resource" id=35]
 [ext_resource path="res://weapons/ranged/crossbow/3/crossbow_data_3.tres" type="Resource" id=36]
 [ext_resource path="res://weapons/melee/pruner/3/pruner_3_data.tres" type="Resource" id=37]
 [ext_resource path="res://weapons/ranged/ghost_scepter/3/ghost_scepter_3_data.tres" type="Resource" id=38]
 [ext_resource path="res://weapons/melee/spiky_shield/3/spiky_shield_3_data.tres" type="Resource" id=39]
+[ext_resource path="res://entities/units/enemies/022/22.tscn" type="PackedScene" id=40]
+[ext_resource path="res://entities/units/enemies/033/33.tscn" type="PackedScene" id=41]
+[ext_resource path="res://entities/units/enemies/020/20.tscn" type="PackedScene" id=42]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/ranged/face_puncher/2/face_puncher_2_data.tres" type="Resource" id=43]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/weapons/ranged/ghost_smg/2/ghost_smg_2_data.tres" type="Resource" id=44]
 
 [resource]
 script = ExtResource( 1 )
@@ -50,5 +55,5 @@ storage_method = 0
 effect_sign = 3
 custom_args = [  ]
 enable_wave_start_signal = true
-enemy_scenes = [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ]
-weapon_datas = [ ExtResource( 9 ), ExtResource( 7 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 30 ), ExtResource( 18 ), ExtResource( 8 ), ExtResource( 22 ), ExtResource( 12 ), ExtResource( 34 ), ExtResource( 31 ), ExtResource( 17 ), ExtResource( 37 ), ExtResource( 14 ), ExtResource( 28 ), ExtResource( 11 ), ExtResource( 39 ), ExtResource( 15 ), ExtResource( 32 ), ExtResource( 13 ), ExtResource( 27 ), ExtResource( 36 ), ExtResource( 16 ), ExtResource( 38 ), ExtResource( 35 ), ExtResource( 10 ), ExtResource( 19 ), ExtResource( 33 ), ExtResource( 6 ), ExtResource( 23 ), ExtResource( 26 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 29 ) ]
+enemy_scenes = [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 42 ), ExtResource( 40 ), ExtResource( 41 ) ]
+weapon_datas = [ ExtResource( 9 ), ExtResource( 7 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 30 ), ExtResource( 18 ), ExtResource( 8 ), ExtResource( 22 ), ExtResource( 12 ), ExtResource( 34 ), ExtResource( 31 ), ExtResource( 17 ), ExtResource( 37 ), ExtResource( 14 ), ExtResource( 28 ), ExtResource( 11 ), ExtResource( 39 ), ExtResource( 15 ), ExtResource( 32 ), ExtResource( 13 ), ExtResource( 27 ), ExtResource( 36 ), ExtResource( 16 ), ExtResource( 38 ), ExtResource( 10 ), ExtResource( 19 ), ExtResource( 33 ), ExtResource( 6 ), ExtResource( 23 ), ExtResource( 26 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 29 ), ExtResource( 35 ), ExtResource( 43 ), ExtResource( 44 ) ]

@@ -6,19 +6,19 @@ export (Array, Resource) var weapon_datas
 
 var _timer:Timer = null
 var _wave_timer:Timer = null
-var _is_elite_spawned:bool = false
 var _entity_spawner = null
 var _wave_manager = null
-var _elite_enemy = null
 var _weapons_list:Dictionary = {}
 var _is_wave_ended: = false
+var _enemies_in_duel_time:Array = []
 
 
 func _on_qmtato_wave_start(player)->void:
 	._on_qmtato_wave_start(player)
 	
-	_is_elite_spawned = false
 	_is_wave_ended = false
+	
+	_enemies_in_duel_time = []
 	
 	_timer = Timer.new()
 	_timer.autostart = true
@@ -42,11 +42,17 @@ func _on_player_died(player)->void :
 	if burning_timer and is_instance_valid(burning_timer):
 		if not burning_timer.is_stopped():
 			burning_timer.stop()
+	
+	_main._cleaning_up = true
+	for enemy in _enemies_in_duel_time:
+		if enemy and is_instance_valid(enemy):
+			enemy.die(Vector2.ZERO, true)
+	_main._cleaning_up = false
 
 
 func _on_timer_timeout()->void :
 	if _wave_timer.time_left <= 5.0:
-		_wave_timer.start(25)
+		_wave_timer.start(_wave_timer.time_left + 20.0)
 		_timer.stop()
 		disconnect_safely(_timer, "timeout", self, "_on_timer_timeout")
 		
@@ -114,33 +120,34 @@ func clean_up_entity_spawner()->void :
 
 func _on_wave_timer_timeout()->void :
 	_main._cleaning_up = true
-	if _elite_enemy and is_instance_valid(_elite_enemy):
-		_elite_enemy.die(Vector2.ZERO, true)
+	
+	for enemy in _enemies_in_duel_time:
+		if enemy and is_instance_valid(enemy):
+			enemy.die(Vector2.ZERO, true)
 	
 	_is_wave_ended = true
 
 
 func _on_enemy_spawned(enemy)->void :
-	if _is_elite_spawned:
-		enemy.die(Vector2.ZERO, true)
-		return
-	
-	_is_elite_spawned = true
-	
-	_elite_enemy = enemy
-	
 	_entity_spawner.births.clear()
 	_entity_spawner.enemies.clear()
 	
+	_enemies_in_duel_time.append(enemy)
+	
+	if instance_of(enemy, Boss):
+		add_random_weapon(enemy)
+		enemy.max_stats.health = enemy.max_stats.health * 0.35 + Utils.get_stat("stat_max_hp") * (RunData.current_wave * 0.5 + 10)
+	else:
+		if randf() < 0.1:
+			add_random_weapon(enemy)
+	
 	_player.stats.knockback_resistance = 0.75
 	
-	enemy.max_stats.health = enemy.max_stats.health * 0.35 + Utils.get_stat("stat_max_hp") * (RunData.current_wave * 0.75 + 10)
 	enemy.current_stats.health = enemy.max_stats.health
 	enemy.emit_signal("health_updated", enemy.current_stats.health, enemy.max_stats.health)
-	enemy.current_stats.speed = min(enemy.current_stats.speed * 0.75, _player.current_stats.speed * 0.75)
+	enemy.current_stats.speed = min(enemy.current_stats.speed * 0.8, _player.current_stats.speed * 0.8)
 	
 	enemy.connect("died", self, "_on_enemy_died")
-	add_random_weapon(enemy)
 
 
 func add_random_weapon(parent)->void :
@@ -148,13 +155,18 @@ func add_random_weapon(parent)->void :
 
 
 func _on_enemy_died(enemy)->void :
-	if not _is_wave_ended:
-		_wave_timer.start(1.1)
-		_is_wave_ended = true
+	_enemies_in_duel_time.erase(enemy)
 	
 	if _weapons_list.has(enemy):
 		if _weapons_list[enemy] and is_instance_valid(_weapons_list[enemy]):
 			_weapons_list[enemy].queue_free()
+	
+	if not instance_of(enemy, Boss) or _is_wave_ended:
+		return
+	
+	if not _is_wave_ended:
+		_wave_timer.start(1.1)
+		_is_wave_ended = true
 
 
 func setup_weapon(instance)->void :
@@ -164,7 +176,11 @@ func setup_weapon(instance)->void :
 	hitbox.collision_layer = 1 << 4
 	
 	if instance is RangedWeapon:
-		instance._shooting_behavior.connect("projectile_shot", self, "_on_projectile_shot")
+		instance._shooting_behavior.connect(
+			"projectile_shot", 
+			self, 
+			"_on_projectile_shot", 
+			[instance.weapon_id])
 		
 	instance._parent = _player
 	
@@ -209,10 +225,16 @@ func add_weapon(weapon, parent)->void :
 	instance.global_position = instance_position
 
 
-
-func _on_projectile_shot(projectile:Node2D)->void :
+func _on_projectile_shot(projectile:Node2D, weapon_id:String)->void :
 	if is_instance_valid(projectile):
-		projectile.velocity *= 0.85
+		match weapon_id:
+			"weapon_ghost_scepter", "weapon_smg", "weapon_wand", "weapon_pistol":
+				projectile.velocity = projectile.velocity.length() * 0.5 * projectile.velocity.normalized()
+			"weapon_obliterator", "weapon_laser_gun", "weapon_revolver", "weapon_crossbow":
+				projectile.velocity = projectile.velocity.length() * 0.3 * projectile.velocity.normalized()
+			_:
+				projectile.velocity = projectile.velocity.length() * 0.75 * projectile.velocity.normalized()
+		
 		projectile.modulate = Color.red
 		
 		var hitbox = projectile.get_node_or_null("Hitbox")

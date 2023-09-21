@@ -113,5 +113,5 @@ EFFECT_CHARACTER_FURION,树木为你而战\n\n树木获得\n{0} 伤害\n{1} 生�
 QMTATO_CHARACTER_DUELIST,决斗者,Duelist
 QMTATO_DUELIST_EFFECT,倒计时最后5s时进入[color=yellow]决斗模式[/color]","此时倒计时增加[color=#00ff00]20s[/color]","决斗时精英敌人根据你的属性获得增强,Enter [color=yellow]Duel Mode[/color] in the last 5s of the countdown\nAt this point"," the countdown increases by [color=#00ff00]20s[/color]\nElite foes gain enhancements based on your stats when dueling
 QMTATO_ITEM_DUELIST_GLORY,角斗士的荣耀,Glory of Duelist
-DUELIST_GLORY_EFFECT,关卡时间延长{0}s\n敌人有[color=red]{1} %[/color]装备一件武器,Extend wave time by {0} s\nEnemy has [color=red]{1} %[/color] chance to equip a random weapon
+DUELIST_GLORY_EFFECT,关卡时间延长{0}s\n敌人有[color=red]{1} %[/color]几率装备一件武器,Extend wave time by {0} s\nEnemy has [color=red]{1} %[/color] chance to equip a random weapon
 CHAL_QMTATO_CHARACTER_DUELIST,使用 {0} 在 危险{1} 难度中赢得一场比赛,Win a run with {0} in Danger {1}
