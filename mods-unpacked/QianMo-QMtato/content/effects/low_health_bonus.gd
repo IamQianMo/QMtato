@@ -2,7 +2,7 @@ extends "res://mods-unpacked/QianMo-QMtato/content/effects/qmtato_effect_parent.
 
 export (Array, Array) var bonus_key_value
 
-var _wave_timer:WaveTimer = null
+var _wave_timer = null
 
 var _is_wave_ended: = false
 

@@ -1,4 +1,4 @@
-extends Consumable
+extends "res://items/consumables/consumable.gd"
 
 
 onready var _timer = $Timer

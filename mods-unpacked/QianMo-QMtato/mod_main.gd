@@ -9,6 +9,7 @@ var ext_dir = ""
 var trans_dir = ""
 var QmtatoMainEventListener = null
 var qmtato_content_data = null
+var temp_content_data = null
 
 var mod_effects: = [
 	preload("res://mods-unpacked/QianMo-QMtato/content/effects/fruit_trees/fruit_tree_effect.gd"),
@@ -47,7 +48,7 @@ func _ready():
 	var ContentLoader = get_node("/root/ModLoader/Darkly77-ContentLoader/ContentLoader")
 	
 	ContentLoader.load_data(dir + "content_data/ghost_smg_content.tres", MOD_NAME)
-	var temp_content_data = load(dir + "content_data/ghost_smg_content.tres")
+	temp_content_data = load(dir + "content_data/ghost_smg_content.tres")
 	qmtato_content_data = temp_content_data.duplicate()
 	qmtato_content_data.weapons_characters.clear()
 	_add_content_items(qmtato_content_data, temp_content_data)
@@ -83,7 +84,27 @@ func _ready():
 			character.starting_weapons.push_back(temp_content_data.weapons[i])
 	# since Brotato 1.0 END
 	
+	_setup_item_service(qmtato_content_data)
+	
 	var _error_progress_data_connect = ProgressData.connect("ready", self, "_on_progress_data_ready")
+
+
+func _setup_item_service(contents)->void :
+	ItemService.weapons.append_array(contents.weapons)
+#	ItemService.items.append_array(contents.items)
+#	ItemService.characters.append_array(contents.characters)
+#	ItemService.sets.append_array(contents.sets)                  # @since 2.1.0
+#	ChallengeService.challenges.append_array(contents.challenges) # @since 2.1.0
+#	ItemService.upgrades.append_array(contents.upgrades)          # @since 5.3.0
+#	ItemService.consumables.append_array(contents.consumables)    # @since 5.3.0
+#	ItemService.elites.append_array(contents.elites)              # @since 5.3.0
+#	ItemService.difficulties.append_array(contents.difficulties)
+#
+#	for i in contents.weapons_characters.size():
+#		if contents.weapons[i]:
+#			var wpn_characters = contents.weapons_characters[i]
+#			for character in wpn_characters:
+#				character.starting_weapons.push_back(contents.weapons[i])  # @since 6.1.0
 
 
 func _on_tiers_data_reseted()->void :
@@ -93,7 +114,29 @@ func _on_tiers_data_reseted()->void :
 func _on_progress_data_ready()->void :
 	call_deferred("check_mod_contents", true)
 	
-	ModLoaderModManager
+	# avoid crash when resume games with mod weapons save files
+	call_deferred("_remove_duplicated_weapons")
+
+
+func _remove_duplicated_weapons()->void :
+	var ids: = []
+	for weapon in qmtato_content_data.weapons:
+		ids.push_back(weapon.my_id)
+	
+	var weapon_dict: = {}
+	for weapon in ItemService.weapons:
+		if weapon.my_id in ids:
+			if weapon_dict.has(weapon):
+				weapon_dict[weapon] += 1
+			else:
+				weapon_dict[weapon] = 1
+
+	for weapon in weapon_dict.keys():
+		var count = weapon_dict[weapon]
+		if count > 1:
+			var diff:int = count - 1
+			for i in diff:
+				ItemService.weapons.erase(weapon)
 
 
 func check_mod_contents(is_init = false)->void :

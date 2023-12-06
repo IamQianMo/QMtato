@@ -1,7 +1,7 @@
-extends PlayerExplosion
+extends "res://projectiles/player_explosion.gd"
 
 
-var _player:Player = null
+var _player = null
 var _knockback: = 50.0
 var _bosses: = []
 

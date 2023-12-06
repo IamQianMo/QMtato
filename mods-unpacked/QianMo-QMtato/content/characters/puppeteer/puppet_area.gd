@@ -5,14 +5,14 @@ onready var _hit_timer = $HitCooldownTimer
 
 var fake_player_script = preload("res://mods-unpacked/QianMo-QMtato/content/characters/puppeteer/puppeteer_fake_player.gd")
 
-var _player:Player = null
+var _player = null
 var _parent = null
 var _targets: = []
 var _target = null
 
 var _is_in_control: = false
-var _movement_behavior:PlayerMovementBehavior = null
-var _entity_spawner:EntitySpawner = null
+var _movement_behavior = null
+var _entity_spawner = null
 var _controlling_effect_parent = null
 var _control_line:Line2D = null
 var _gradient:Gradient = null
@@ -26,7 +26,7 @@ func _ready():
 	_gradient.add_point(1, Color.darkviolet)
 	
 	_fake_player = fake_player_script.new()
-	call_deferred("add_child", _fake_player)
+	add_child(_fake_player)
 	
 	var _main = RunData.get_tree().current_scene
 	_entity_spawner = _main._entity_spawner
@@ -35,7 +35,7 @@ func _ready():
 
 func _on_wave_timer_timeout()->void :
 	if is_instance_valid(_parent):
-		_parent.die()
+		_parent.queue_free()
 
 
 func change_control_mode(is_in_control)->void:

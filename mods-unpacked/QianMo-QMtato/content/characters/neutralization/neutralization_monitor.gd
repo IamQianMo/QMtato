@@ -5,7 +5,7 @@ onready var _change_toggle_timer = $ChangeToggleTimer
 
 var _change_toggle_wait_time: = 1.0
 var _parent = null
-var _wave_timer:WaveTimer = null
+var _wave_timer = null
 
 
 func init(parent, change_toggle_wait_time:float)->void:

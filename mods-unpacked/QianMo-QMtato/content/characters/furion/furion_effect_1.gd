@@ -28,8 +28,7 @@ func add_weapon(weapon_data:WeaponData, pos:int, parent, instance_position:Vecto
 	instance.tier = weapon_data.tier
 	instance.weapon_sets = weapon_data.sets
 	instance.connect("tracked_value_updated", weapon_data, "on_tracked_value_updated")
-	instance._parent = _player
-
+	
 	for effect in weapon_data.effects:
 		var duplicated_effect = effect.duplicate()
 		instance.effects.push_back(duplicated_effect)
@@ -39,14 +38,20 @@ func add_weapon(weapon_data:WeaponData, pos:int, parent, instance_position:Vecto
 		elif not duplicated_effect.get_id().find("VLM_effect") == -1:
 			duplicated_effect.on_wave_start(_player)
 	
+	_player._weapons_container.add_child(instance)
+	
+	call_deferred("setup_weapon", instance, instance_position, parent)
+	instance.call_deferred("init_stats", true)
+
+
+func setup_weapon(instance, instance_position, parent)->void :
+	instance.get_parent().remove_child(instance)
 	parent.add_child(instance)
 	
 	instance.apply_scale(Vector2(1.2, 1.2))
 	instance_position.x += 30 if rand_range(0, 1) < 0.5 else -30
 	instance_position.y -= rand_range(-20, 20)
 	instance.global_position = instance_position
-	
-	instance.call_deferred("init_stats", true)
 
 
 func _on_neutral_spawned(neutral) :

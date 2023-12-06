@@ -1,4 +1,4 @@
-extends Turret
+extends "res://entities/structures/turret/turret.gd"
 
 
 onready var _reparing_timer = $ReparingTimer

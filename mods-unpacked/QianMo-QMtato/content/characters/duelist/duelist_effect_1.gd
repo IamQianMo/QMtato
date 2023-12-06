@@ -169,7 +169,7 @@ func _on_enemy_died(enemy)->void :
 		_is_wave_ended = true
 
 
-func setup_weapon(instance)->void :
+func setup_weapon(instance:Weapon, parent)->void :
 	var range2d:Area2D = instance._range
 	range2d.collision_mask = 1 << 1
 	var hitbox = instance._hitbox
@@ -181,8 +181,6 @@ func setup_weapon(instance)->void :
 			self, 
 			"_on_projectile_shot", 
 			[instance.weapon_id])
-		
-	instance._parent = _player
 	
 	var current_stats = instance.current_stats
 	current_stats.max_range *= 1.25
@@ -190,6 +188,15 @@ func setup_weapon(instance)->void :
 	hitbox.set_damage(current_stats.damage, current_stats.accuracy, current_stats.crit_chance, current_stats.crit_damage, current_stats.burning_data, current_stats.is_healing)
 	
 	instance._range_shape.shape.radius *= 1.25
+	
+	instance.get_parent().remove_child(instance)
+	parent.add_child(instance)
+	
+	var instance_position:Vector2 = parent.global_position
+	instance.apply_scale(Vector2(1.2, 1.2))
+	instance_position.x += 30 if rand_range(0, 1) < 0.5 else -30
+	instance_position.y -= rand_range(-50, 50)
+	instance.global_position = instance_position
 
 
 func add_weapon(weapon, parent)->void :
@@ -204,25 +211,18 @@ func add_weapon(weapon, parent)->void :
 	instance.tier = weapon.tier
 	instance.weapon_sets = weapon.sets
 	
+	call_deferred("setup_weapon", instance, parent)
 	instance.call_deferred("init_stats", true)
-	call_deferred("setup_weapon", instance)
 	
 	for effect in weapon.effects:
 		var duplicated_effect = effect.duplicate()
 		instance.effects.push_back(duplicated_effect)
 
+	_player._weapons_container.add_child(instance)
 #		if not duplicated_effect.get_id().find("qmtato_effect") == -1:
 #			duplicated_effect._on_qmtato_wave_start(_player)
 #		elif not duplicated_effect.get_id().find("VLM_effect") == -1:
 #			duplicated_effect.on_wave_start(_player)
-	
-	parent.add_child(instance)
-	
-	var instance_position:Vector2 = parent.global_position
-	instance.apply_scale(Vector2(1.2, 1.2))
-	instance_position.x += 30 if rand_range(0, 1) < 0.5 else -30
-	instance_position.y -= rand_range(-50, 50)
-	instance.global_position = instance_position
 
 
 func _on_projectile_shot(projectile:Node2D, weapon_id:String)->void :

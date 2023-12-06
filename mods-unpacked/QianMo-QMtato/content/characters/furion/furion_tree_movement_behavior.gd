@@ -31,3 +31,9 @@ func get_new_target()->Vector2:
 	new_target.y = clamp(new_target.y, _parent._min_pos.y, _parent._max_pos.y)
 	
 	return new_target
+
+
+func get_target_position()->Vector2 :
+	if is_instance_valid(player_ref):
+		return player_ref.global_position
+	return Vector2.ZERO

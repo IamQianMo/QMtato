@@ -1,4 +1,4 @@
-extends TurretEffect
+extends "res://effects/items/turret_effect.gd"
 
 
 export (bool) var is_random: = true

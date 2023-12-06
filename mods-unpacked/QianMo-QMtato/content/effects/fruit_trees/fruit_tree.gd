@@ -1,4 +1,4 @@
-extends Turret
+extends "res://entities/structures/turret/turret.gd"
 
 
 export (PackedScene) var fruit_scene

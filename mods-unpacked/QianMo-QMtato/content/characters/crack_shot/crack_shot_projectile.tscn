@@ -15,6 +15,7 @@ step = 0.02
 [node name="NuclearProjectile" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 enable_physics_process = true
+rotation_speed = 0
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )
