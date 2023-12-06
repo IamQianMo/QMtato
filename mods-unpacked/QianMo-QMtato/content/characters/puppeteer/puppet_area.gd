@@ -48,6 +48,12 @@ func change_control_mode(is_in_control)->void:
 func _on_parent_died(_deadbody)->void:
 	if not _control_line == null:
 		_control_line.queue_free()
+	
+	_parent.player_ref = _player
+	_parent._movement_behavior.set("player_ref", _player)
+	
+	set_physics_process(false)
+	
 	queue_free()
 
 
@@ -88,6 +94,9 @@ var _target_position = Vector2.ZERO
 var _control_mode_target = null
 
 func _physics_process(_delta):
+	if _parent.dead:
+		set_physics_process(false)
+		return
 	if not _is_in_control:
 		if not _control_line == null:
 			_control_line.queue_free()

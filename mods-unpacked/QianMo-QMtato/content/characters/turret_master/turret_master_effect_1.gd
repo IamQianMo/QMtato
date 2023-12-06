@@ -94,7 +94,7 @@ func check_character(id:String)->bool :
 	if RunData.current_character == null:
 		return false
 	
-	var gmo_characters:Array = RunData.get("gmo_characters")
+	var gmo_characters = RunData.get("gmo_characters")
 	if gmo_characters:
 		if gmo_characters.empty():
 			for item in RunData.items:
