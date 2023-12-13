@@ -5,10 +5,10 @@ signal dig_completed(area_instance)
 
 export (float) var dig_time: = 5.0
 
-var area_scene = preload("res://mods-unpacked/QianMo-QMtato/content/effects/treasure_area/area_scene.tscn")
+var area_scene = load("res://mods-unpacked/QianMo-QMtato/content/effects/treasure_area/area_scene.tscn")
 var consumable_scene = load("res://items/consumables/consumable.tscn")
 var unit_stats = load("res://entities/units/neutral/tree_stats.tres").duplicate()
-var fake_unit = preload("res://mods-unpacked/QianMo-QMtato/content/effects/treasure_area/treasure_fake_unit.tscn")
+var fake_unit = load("res://mods-unpacked/QianMo-QMtato/content/effects/treasure_area/treasure_fake_unit.tscn")
 var _area_instances: = []
 var _floating_text_manager:FloatingTextManager = null
 var _zone_min_pos
@@ -108,8 +108,7 @@ func spawn_gold(instance, gold_number)->void :
 	
 	if is_instance_valid(_fake_unit):
 		_main.call_deferred("spawn_gold", _fake_unit, EntityType.NEUTRAL)
-	
-	_fake_unit.call_deferred("queue_free")
+		_fake_unit.call_deferred("queue_free")
 
 
 func spawn_area()->void :
