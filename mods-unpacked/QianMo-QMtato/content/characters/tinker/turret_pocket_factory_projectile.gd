@@ -1,10 +1,10 @@
-extends PlayerProjectile
+extends "res://projectiles/player_projectile.gd"
 
 
 var _target = null
 var _target_direction: = Vector2.ZERO
 var _rotation_rate: = 0.3
-var _entity_spawner:EntitySpawner = null
+var _entity_spawner = null
 var _speed: = -1
 
 var from = null

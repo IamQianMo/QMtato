@@ -22,8 +22,8 @@ const COLOR_RED = Color(1.0, 0, 0, 0.5)
 
 var _health_bar_instance = null
 var _current_health: = 10
-var _floating_text_manager:FloatingTextManager = null
-var _effects_manager:EffectsManager = null
+var _floating_text_manager = null
+var _effects_manager = null
 var _damage_reduction: = 0.1
 var _time_count: = 0
 var _range: = 0
@@ -89,7 +89,9 @@ func take_damage(damage:int, hitbox):
 	
 	_effects_manager.play_hit_effect(global_position, global_position - hitbox.global_position, 1.0)
 	_floating_text_manager.display("-" + str(damage), global_position, Color.red)
-	_health_bar_instance.emit_signal("health_changed", _current_health)
+	
+	if is_instance_valid(_health_bar_instance):
+		_health_bar_instance.emit_signal("health_changed", _current_health)
 
 
 func die(_knockback_vector:Vector2 = Vector2.ZERO, p_cleaning_up:bool = false)->void:
@@ -155,6 +157,14 @@ func _on_Repairingbox_body_exited(body):
 
 func _on_InvincibilityTimer_timeout():
 	_hurt_box.enable()
+
+
+func _on_Range_body_entered(body:Node)->void :
+	._on_Range_body_entered(body)
+
+
+func _on_Range_body_exited(body:Node)->void :
+	._on_Range_body_exited(body)
 
 
 func shoot()->void :

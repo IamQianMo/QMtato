@@ -18,6 +18,10 @@ shader_param/flash_modifier = 0.0
 [sub_resource type="CircleShape2D" id=2]
 radius = 40.0
 
+[sub_resource type="CircleShape2D" id=8]
+resource_local_to_scene = true
+radius = 169.706
+
 [sub_resource type="Animation" id=3]
 length = 0.4
 loop = true
@@ -145,7 +149,7 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=9]
 resource_name = "idle"
 loop = true
 step = 0.5
@@ -190,12 +194,9 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.5, 1 )
 }
 
-[sub_resource type="CircleShape2D" id=6]
-radius = 169.706
-
 [sub_resource type="CircleShape2D" id=7]
 
-[node name="Turret" type="KinematicBody2D"]
+[node name="Turret" type="RigidBody2D"]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 3 )
@@ -220,13 +221,6 @@ visible = false
 position = Vector2( 0, -8 )
 shape = SubResource( 2 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "idle"
-anims/RESET = SubResource( 3 )
-anims/death = SubResource( 4 )
-anims/idle = SubResource( 5 )
-anims/shoot = ExtResource( 4 )
-
 [node name="Range" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 5
@@ -234,7 +228,14 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
 rotation = 1.5708
-shape = SubResource( 6 )
+shape = SubResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/RESET = SubResource( 3 )
+anims/death = SubResource( 4 )
+anims/idle = SubResource( 9 )
+anims/shoot = ExtResource( 4 )
 
 [node name="Hurtbox" type="Area2D" parent="."]
 modulate = Color( 1, 0, 0, 1 )
@@ -278,9 +279,9 @@ wait_time = 0.3
 wait_time = 0.1
 one_shot = true
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="Range" to="." method="_on_Range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_Range_body_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="body_entered" from="Repairingbox" to="." method="_on_Repairingbox_body_entered"]
 [connection signal="body_exited" from="Repairingbox" to="." method="_on_Repairingbox_body_exited"]
