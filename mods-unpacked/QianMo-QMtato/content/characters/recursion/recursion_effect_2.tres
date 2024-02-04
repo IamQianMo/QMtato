@@ -13,7 +13,6 @@ custom_key = ""
 storage_method = 0
 effect_sign = 3
 custom_args = [  ]
-enable_wave_start_signal = true
 scaling_stats = [ [ "stat_ranged_damage", 0.01 ] ]
 base_bonus = 0.7
 target_crosshair = ExtResource( 2 )

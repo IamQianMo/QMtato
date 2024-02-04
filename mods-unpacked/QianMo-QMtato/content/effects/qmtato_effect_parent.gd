@@ -1,7 +1,5 @@
-extends Effect
+extends "res://items/global/effect.gd"
 
-
-export (bool) var enable_wave_start_signal = true
 
 var _player = null
 var _main = null
@@ -16,16 +14,14 @@ func apply()->void:
 
 
 func unapply()->void:
-	if enable_wave_start_signal:
-		if RunData.is_connected("qmtato_on_wave_start", self, "_on_qmtato_wave_start_prefix"):
-			RunData.disconnect("qmtato_on_wave_start", self, "_on_qmtato_wave_start_prefix")
+	if RunData.is_connected("qmtato_on_wave_start", self, "_on_qmtato_wave_start_prefix"):
+		RunData.disconnect("qmtato_on_wave_start", self, "_on_qmtato_wave_start_prefix")
 
 
 func apply_connection()->void:
 	_player = TempStats.player
-	if enable_wave_start_signal:
-		if not RunData.is_connected("qmtato_on_wave_start", self, "_on_qmtato_wave_start_prefix"):
-			RunData.connect("qmtato_on_wave_start", self, "_on_qmtato_wave_start_prefix")
+	if not RunData.is_connected("qmtato_on_wave_start", self, "_on_qmtato_wave_start_prefix"):
+		RunData.connect("qmtato_on_wave_start", self, "_on_qmtato_wave_start_prefix")
 
 
 func _on_qmtato_wave_start_prefix(player):

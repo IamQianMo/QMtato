@@ -12,7 +12,6 @@ custom_key = ""
 storage_method = 0
 effect_sign = 3
 custom_args = [  ]
-enable_wave_start_signal = true
 portal_scene = ExtResource( 2 )
 change_wait_time = 15.0
 colors = [ Color( 1, 1, 0, 1 ), Color( 1, 0, 0, 1 ) ]

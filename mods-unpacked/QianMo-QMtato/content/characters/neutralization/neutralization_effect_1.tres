@@ -14,7 +14,6 @@ custom_key = ""
 storage_method = 0
 effect_sign = 3
 custom_args = [  ]
-enable_wave_start_signal = true
 monitor_scene = ExtResource( 2 )
 enemy_monitor_scene = ExtResource( 3 )
 ui_scene = ExtResource( 4 )

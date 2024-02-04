@@ -13,6 +13,5 @@ custom_key = ""
 storage_method = 0
 effect_sign = 2
 custom_args = [  ]
-enable_wave_start_signal = true
 mobile_button = ExtResource( 2 )
 berserker_monitor = ExtResource( 3 )

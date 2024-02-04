@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/rich/rich_effect_2.gd" type="Script" id=1]
+[ext_resource path="res://items/materials/harvesting_icon.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+key = "qmtato_empty"
+text_key = "EFFECT_QMTATO_CHARACTER_RICH"
+value = 0
+custom_key = ""
+storage_method = 0
+effect_sign = 3
+custom_args = [  ]
+gold_icon = ExtResource( 2 )
+gold_damage_scale_stats = [ [ "materials", 0.01 ] ]

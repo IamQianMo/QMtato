@@ -15,7 +15,6 @@ custom_key = ""
 storage_method = 0
 effect_sign = 3
 custom_args = [  ]
-enable_wave_start_signal = true
 bonus_cri_chance = 0.25
 bonus_effects = [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 3 ) ]
 max_bonus_effects = 2
