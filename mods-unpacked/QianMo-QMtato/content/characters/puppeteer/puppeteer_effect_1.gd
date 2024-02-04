@@ -16,11 +16,10 @@ export (int) var max_puppets: = 8
 
 var _controlling_enemies: = []
 var _timer
-var _entity_spawner:EntitySpawner = null
+var _entity_spawner = null
 var _monitor_instance = null
 var _mobile_button_instance = null
 var _puppeteer_range_instance = null
-
 
 func _on_qmtato_wave_start(player)->void:
 	._on_qmtato_wave_start(player)
@@ -44,7 +43,7 @@ func _on_qmtato_wave_start(player)->void:
 		_mobile_button_instance.queue_free()
 	if is_mobile_device():
 		_mobile_button_instance = mobile_scene.instance()
-		var _main_ui = RunData.get_tree().current_scene.get_node("UI/DimScreen")
+		var _main_ui = _main.get_node("UI/DimScreen")
 		_main_ui.add_child(_mobile_button_instance)
 	
 	if not _puppeteer_range_instance == null and is_instance_valid(_puppeteer_range_instance):
@@ -92,23 +91,25 @@ func control_enemy(enemy)->void:
 	if attack_behavaior and attack_behavaior is SpawningAttackBehavior:
 		return
 	
-	var hurtbox = enemy.get("_hurtbox")
+	var hurtbox = enemy._hurtbox
 	_entity_spawner.enemies.erase(enemy)
 	
 	enemy.modulate = Color.blueviolet
+	
 	enemy.current_stats.speed *= get_speed_factor()
 	enemy.max_stats.health *= get_health_factor()
 	hitbox.damage *= get_damage_factor()
 	enemy.current_stats.health = enemy.max_stats.health
 	
-	enemy.collision_layer = 1 << 1 | 1 << 10
-	enemy.collision_mask = enemy.collision_mask | 1 << 10
-	hitbox.collision_layer = 1 << 3
-	hurtbox.collision_mask = 1 << 2 | 1 << 4
+	# Deferred to prevent conlict with SomeSeriousWork MOD
+	enemy.set_deferred("collision_layer", 1 << 1 | 1 << 10)
+	enemy.set_deferred("collision_mask", enemy.collision_mask | 1 << 10)
+	hitbox.set_deferred("collision_layer", 1 << 3)
+	hurtbox.set_deferred("collision_mask", 1 << 2 | 1 << 4)
 	hitbox.ignored_objects.push_back(enemy)
 	
 	var instance = puppet_area_scene.instance()
-	instance.name = "puppet"
+	instance.name = "Puppet"
 	enemy.call_deferred("add_child", instance)
 	instance.call_deferred("init", _player, self)
 	instance.call_deferred("change_control_mode", _monitor_instance._control_mode)
@@ -123,23 +124,21 @@ func _on_node_added(node):
 		var hitbox = node._hitbox
 		if hitbox == null or not is_instance_valid(hitbox):
 			return
-		
-		for e in _controlling_enemies:
-			hitbox.ignored_objects.push_back(e[0])
-		hitbox.ignored_objects.push_back(_player)
 			
 		yield(RunData.get_tree().create_timer(0.05), "timeout")
 		if not hitbox == null and is_instance_valid(hitbox):
 			var from = hitbox.from
 			if not from == null and is_instance_valid(from):
-				var flag = false
+				var flag: = false
 				for e in _controlling_enemies:
 					if from == e[0]:
 						flag = true
 						break
-				if not flag:
-					hitbox.ignored_objects.clear()
-				else:
+				if flag:
+					for e in _controlling_enemies:
+						hitbox.ignored_objects.push_back(e[0])
+					hitbox.ignored_objects.push_back(_player)
+					
 					node.modulate = Color.green
 					hitbox.collision_layer = 1 << 3
 

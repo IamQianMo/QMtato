@@ -115,3 +115,5 @@ QMTATO_DUELIST_EFFECT,倒计时最后5s时进入[color=yellow]决斗模式[/colo
 QMTATO_ITEM_DUELIST_GLORY,角斗士的荣耀,Glory of Duelist
 DUELIST_GLORY_EFFECT,关卡时间延长{0}s\n敌人有[color=red]{1} %[/color]几率装备一件武器,Extend wave time by {0} s\nEnemy has [color=red]{1} %[/color] chance to equip a random weapon
 CHAL_QMTATO_CHARACTER_DUELIST,使用 {0} 在 危险{1} 难度中赢得一场比赛,Win a run with {0} in Danger {1}
+CHARACTER_MARBLE,弹豆,Marble
+MARBLE_DETAIL_TEXT,通过移动键可以蓄力，冲刺过程中碰到敌人会产生爆炸，造成[color=#00ff00]{0}[/color] ({1})伤害\n冲刺箭头和目标指示越一致(方向和大小)，冲刺效果越强\n\n冲刺产生射弹(箭头大小):\n[color=#00ff00]{2}[/color] ({3}) 伤害\n[color=#00ff00]{4}[/color] 最大射弹数\n[color=#00ff00]8[/color] 倍对Boss伤害\n\n射弹尺寸(箭头方向):\n[color=#00ff00]2[/color] 倍最大尺寸\n,Movement will charge you，when you are dashing，you can deal [color=#00ff00]{0}[/color] ({1}) explosion damage\nThe closer your dash bar is to the target arrow，the more powerful your dash will be\n\nDash spawn projectiles(arrow size):\n[color=#00ff00]{2}[/color] ({3}) damage\n[color=#00ff00]{4}[/color] max projectiles number\n[color=#00ff00]8[/color] times more damage to Boss\n\nProjectiles size(arrow direction):\n[color=#00ff00]2[/color] times max size\n

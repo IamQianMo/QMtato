@@ -1,0 +1,22 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/marble/marble_monitor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/marble/marble_effect_1.gd" type="Script" id=2]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/marble/marble_projectile_stats.tres" type="Resource" id=3]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/marble/marble_exploding_stats.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 2 )
+key = ""
+text_key = "MARBLE_DETAIL_TEXT"
+value = 0
+custom_key = ""
+storage_method = 0
+effect_sign = 3
+custom_args = [  ]
+enable_wave_start_signal = true
+monitor_scene = ExtResource( 1 )
+bonus_armor_while_dashing = 15
+max_projectile = 10
+projectile_stats = ExtResource( 3 )
+exploding_stats = ExtResource( 4 )

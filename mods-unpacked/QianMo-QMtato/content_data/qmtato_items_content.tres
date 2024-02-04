@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=78 format=2]
+[gd_resource type="Resource" load_steps=79 format=2]
 
 [ext_resource path="res://mods-unpacked/Darkly77-ContentLoader/content_data.gd" type="Script" id=1]
 [ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/cure/cure_data.tres" type="Resource" id=2]
@@ -77,10 +77,11 @@
 [ext_resource path="res://mods-unpacked/QianMo-QMtato/content/challenges/turret_master_data.tres" type="Resource" id=75]
 [ext_resource path="res://mods-unpacked/QianMo-QMtato/content/challenges/miner_data.tres" type="Resource" id=76]
 [ext_resource path="res://mods-unpacked/QianMo-QMtato/content/items/all/duelist_glory/duelist_glory.tres" type="Resource" id=77]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/marble/marble_character_data.tres" type="Resource" id=78]
 
 [resource]
 script = ExtResource( 1 )
-characters = [ ExtResource( 8 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 24 ), ExtResource( 57 ), ExtResource( 41 ), ExtResource( 25 ), ExtResource( 27 ), ExtResource( 22 ) ]
+characters = [ ExtResource( 8 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 24 ), ExtResource( 57 ), ExtResource( 41 ), ExtResource( 25 ), ExtResource( 27 ), ExtResource( 22 ), ExtResource( 78 ) ]
 items = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 26 ), ExtResource( 58 ), ExtResource( 60 ), ExtResource( 77 ) ]
 weapons = [ ExtResource( 28 ), ExtResource( 42 ), ExtResource( 46 ), ExtResource( 62 ), ExtResource( 32 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 45 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 63 ), ExtResource( 65 ), ExtResource( 64 ) ]
 weapons_characters = [ [ ExtResource( 36 ), ExtResource( 38 ), ExtResource( 34 ), ExtResource( 33 ), ExtResource( 35 ), ExtResource( 37 ), ExtResource( 39 ), ExtResource( 40 ) ], [ ExtResource( 40 ), ExtResource( 53 ), ExtResource( 50 ), ExtResource( 38 ), ExtResource( 36 ), ExtResource( 51 ), ExtResource( 56 ), ExtResource( 55 ), ExtResource( 33 ), ExtResource( 52 ), ExtResource( 54 ), ExtResource( 35 ), ExtResource( 34 ) ], [ ExtResource( 40 ), ExtResource( 53 ), ExtResource( 50 ), ExtResource( 38 ), ExtResource( 36 ), ExtResource( 51 ), ExtResource( 56 ), ExtResource( 55 ), ExtResource( 33 ), ExtResource( 52 ), ExtResource( 54 ), ExtResource( 35 ), ExtResource( 34 ) ], [ ExtResource( 38 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 51 ), ExtResource( 72 ), ExtResource( 71 ), ExtResource( 39 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 34 ), ExtResource( 66 ), ExtResource( 69 ), ExtResource( 68 ), ExtResource( 67 ), ExtResource( 35 ), ExtResource( 70 ), ExtResource( 52 ), ExtResource( 73 ), ExtResource( 40 ) ] ]
