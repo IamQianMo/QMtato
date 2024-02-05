@@ -119,3 +119,7 @@ CHARACTER_MARBLE,弹豆,Marble
 MARBLE_DETAIL_TEXT,通过移动键可以蓄力，冲刺过程中碰到敌人会产生爆炸，造成[color=#00ff00]{0}[/color] ({1})伤害\n冲刺箭头和目标指示越一致(方向和大小)，冲刺效果越强\n\n冲刺产生射弹(箭头大小):\n[color=#00ff00]{2}[/color] ({3}) 伤害\n[color=#00ff00]{4}[/color] 最大射弹数\n[color=#00ff00]8[/color] 倍对Boss伤害\n\n射弹尺寸(箭头方向):\n[color=#00ff00]2[/color] 倍最大尺寸\n,Movement will charge you，when you are dashing，you can deal [color=#00ff00]{0}[/color] ({1}) explosion damage\nThe closer your dash bar is to the target arrow，the more powerful your dash will be\n\nDash spawn projectiles(arrow size):\n[color=#00ff00]{2}[/color] ({3}) damage\n[color=#00ff00]{4}[/color] max projectiles number\n[color=#00ff00]8[/color] times more damage to Boss\n\nProjectiles size(arrow direction):\n[color=#00ff00]2[/color] times max size\n
 QMTATO_CHARACTER_RICH,财富,Rich
 EFFECT_QMTATO_CHARACTER_RICH,材料会伤害敌人","造成{0} ({1})伤害,Materials will hurt enemies dealing {0} ({1}) damage
+QMTATO_MOVED_TITLE,QMtato迁移到新页面了,QMtato was moved to new page
+QMTATO_MOVED_DETAILED_TEXT,原来的MOD页面的评论区出BUG了，不能正常显示，现迁移至新的创意工坊页面，点击跳转按钮可以打开新页面，取消订阅旧的QMtato再订阅链接中新的QMtato即可,The old workshop page of QMtato was bugged","so there will be a new page","you can click the Teleport button to new page","you can unsubscribe the outdated QMtato and resubscribe the new QMtato
+QMTATO_MOVED_REDIRECT_BUTTON,跳转,Teleport
+QMTATO_MOVED_CONFIRM,确认,Confirm

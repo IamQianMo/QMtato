@@ -31,6 +31,9 @@ func _init(_modLoader = ModLoader):
 	ModLoaderMod.install_script_extension(ext_dir + "singletons/item_service.gd")
 	ModLoaderMod.install_script_extension(ext_dir + "singletons/run_data.gd")
 	
+	# Show outdated warning in title screen
+#	ModLoaderMod.install_script_extension(ext_dir + "title_screen.gd")
+	
 	ModLoaderMod.add_translation(trans_dir + "languages/mod_translation.zh.translation")
 	ModLoaderMod.add_translation(trans_dir + "languages/mod_translation.en.translation")
 

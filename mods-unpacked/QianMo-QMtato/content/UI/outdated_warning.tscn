@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://resources/themes/base_theme.tres" type="Theme" id=1]
+[ext_resource path="res://resources/fonts/actual/base/font_big_title.tres" type="DynamicFont" id=2]
+[ext_resource path="res://ui/menus/global/my_menu_button.gd" type="Script" id=3]
+[ext_resource path="res://resources/fonts/actual/base/font_button.tres" type="DynamicFont" id=4]
+[ext_resource path="res://resources/fonts/actual/base/font_menus.tres" type="DynamicFont" id=5]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/UI/outdated_warning.gd" type="Script" id=6]
+
+[sub_resource type="StyleBoxFlat" id=1]
+border_blend = true
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+expand_margin_left = 50.0
+expand_margin_right = 50.0
+expand_margin_top = 50.0
+expand_margin_bottom = 50.0
+
+[node name="CenterContainer" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 1 )
+script = ExtResource( 6 )
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_left = 157.0
+margin_top = 368.0
+margin_right = 1763.0
+margin_bottom = 712.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_right = 1606.0
+margin_bottom = 344.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 30
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_left = 469.0
+margin_right = 1137.0
+margin_bottom = 73.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 2 )
+text = "QMTATO_MOVED_TITLE"
+
+[node name="Details" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_top = 103.0
+margin_right = 1606.0
+margin_bottom = 148.0
+custom_fonts/font = ExtResource( 5 )
+text = "QMTATO_MOVED_DETAILED_TEXT"
+autowrap = true
+
+[node name="Url" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+margin_top = 178.0
+margin_right = 1606.0
+margin_bottom = 232.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Url"]
+margin_top = 4.0
+margin_right = 78.0
+margin_bottom = 49.0
+text = "URL:"
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/VBoxContainer/Url"]
+margin_left = 82.0
+margin_right = 864.0
+margin_bottom = 54.0
+text = "https://steamcommunity.com/sharedfiles/filedetails/?id=3153961011"
+editable = false
+expand_to_text_length = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+margin_top = 262.0
+margin_right = 1606.0
+margin_bottom = 344.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+alignment = 1
+
+[node name="ConfirmButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+margin_right = 675.0
+margin_bottom = 82.0
+custom_fonts/font = ExtResource( 4 )
+text = "QMTATO_MOVED_CONFIRM"
+script = ExtResource( 3 )
+
+[node name="RedirectButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 695.0
+margin_right = 1606.0
+margin_bottom = 82.0
+custom_fonts/font = ExtResource( 4 )
+text = "QMTATO_MOVED_REDIRECT_BUTTON"
+script = ExtResource( 3 )
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/ConfirmButton" to="." method="_on_ConfirmButton_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/RedirectButton" to="." method="_on_RedirectButton_pressed"]
