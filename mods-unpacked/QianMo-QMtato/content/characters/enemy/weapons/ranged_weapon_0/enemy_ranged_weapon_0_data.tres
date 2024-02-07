@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://items/global/weapon_data.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/enemy/weapons/ranged_weapon_0/enemy_ranged_weapon_0.tscn" type="PackedScene" id=4]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/enemy/weapons/ranged_weapon_0/enemy_ranged_weapon_0_stats.tres" type="Resource" id=6]
+
+[resource]
+script = ExtResource( 1 )
+my_id = "qmtato_enemy_ranged_weapon"
+unlocked_by_default = true
+name = ""
+tier = 0
+value = 1
+effects = [  ]
+tracking_text = ""
+weapon_id = "qmtato_enemy_ranged_weapon"
+type = 1
+sets = [  ]
+scene = ExtResource( 4 )
+stats = ExtResource( 6 )

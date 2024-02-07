@@ -3,6 +3,7 @@ extends "res://items/global/effect.gd"
 
 var _player = null
 var _main = null
+var _connections_dict: = {} # should be {}
 
 
 static func get_id()->String:

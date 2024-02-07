@@ -1,8 +1,8 @@
 {
 	"name": "QMtato",
 	"namespace": "QianMo",
-	"version_number": "1.5.4",
-	"description": "Added [color=#00ff00]15[/color] new items, [color=#00ff00]9[/color] new weapons and [color=#00ff00]18[/color] new characters.",
+	"version_number": "1.5.5",
+	"description": "Added [color=#00ff00]15[/color] new items, [color=#00ff00]9[/color] new weapons and [color=#00ff00]19[/color] new characters.",
 	"website_url": "https://github.com/IamQianMo/QMtato",
 	"dependencies": [
 		"Darkly77-Brotils",

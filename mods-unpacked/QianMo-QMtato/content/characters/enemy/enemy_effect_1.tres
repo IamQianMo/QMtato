@@ -1,0 +1,36 @@
+[gd_resource type="Resource" load_steps=12 format=2]
+
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/enemy/enemy_effect_1.gd" type="Script" id=1]
+[ext_resource path="res://items/characters/chunky/chunky_icon.png" type="Texture" id=2]
+[ext_resource path="res://items/characters/speedy/speedy_icon.png" type="Texture" id=3]
+[ext_resource path="res://items/characters/ranger/ranger_icon.png" type="Texture" id=4]
+[ext_resource path="res://items/characters/fisherman/fisherman_icon.png" type="Texture" id=5]
+[ext_resource path="res://items/characters/ghost/ghost_icon.png" type="Texture" id=6]
+[ext_resource path="res://items/characters/well_rounded/well_rounded_icon.png" type="Texture" id=7]
+[ext_resource path="res://items/characters/bull/bull_icon.png" type="Texture" id=8]
+[ext_resource path="res://items/characters/engineer/engineer_icon.png" type="Texture" id=9]
+[ext_resource path="res://entities/units/player/potato.png" type="Texture" id=10]
+[ext_resource path="res://items/characters/explorer/explorer_icon.png" type="Texture" id=11]
+
+[resource]
+script = ExtResource( 1 )
+key = "qmtato_empty"
+text_key = "CHARACTER_RENEGADE"
+value = 1
+custom_key = ""
+storage_method = 0
+effect_sign = 3
+custom_args = [  ]
+taged_sprites = {
+"bull": ExtResource( 8 ),
+"dodge": ExtResource( 6 ),
+"empty_sprite": ExtResource( 10 ),
+"explorer": ExtResource( 11 ),
+"fisherman": ExtResource( 5 ),
+"health": ExtResource( 2 ),
+"normal": ExtResource( 7 ),
+"ranged": ExtResource( 4 ),
+"speed": ExtResource( 3 ),
+"summon": ExtResource( 9 )
+}
+random_chance = 0.7

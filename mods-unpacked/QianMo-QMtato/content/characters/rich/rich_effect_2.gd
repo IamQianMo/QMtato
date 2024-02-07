@@ -31,6 +31,13 @@ func _on_qmtato_wave_start(player)->void:
 	var _error_connect = _items_container.connect("child_entered_tree", self, "_on_items_container_child_entered_tree")
 
 
+func unapply()->void :
+	.unapply()
+	
+	disconnect_safely(RunData, "stats_updated", self, "_on_stats_updated")
+	disconnect_safely(RunData, "gold_changed", self, "_on_gold_changed")
+
+
 func _on_items_container_child_entered_tree(node: Node)->void :
 	if node is Gold:
 		var hitbox = GOLD_HITBOX_SCENE.instance()

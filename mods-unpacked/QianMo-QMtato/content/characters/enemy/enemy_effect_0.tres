@@ -1,0 +1,27 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/enemy/enemy_effect_0.gd" type="Script" id=1]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/enemy/weapons/ranged_weapon_0/enemy_ranged_weapon_0_data.tres" type="Resource" id=2]
+[ext_resource path="res://entities/units/enemies/001/1.png" type="Texture" id=3]
+[ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/enemy/weapons/melee_weapon_0/enemy_melee_weapon_0_data.tres" type="Resource" id=4]
+[ext_resource path="res://entities/units/enemies/003/3.png" type="Texture" id=5]
+
+[resource]
+script = ExtResource( 1 )
+key = "qmtato_empty"
+text_key = "QMTATO_ADD_ENEMY_WEAPONS_EFFECT"
+value = 1
+custom_key = ""
+storage_method = 0
+effect_sign = 2
+custom_args = [  ]
+remove_current_weapons = true
+ranged_weapons = [ ExtResource( 2 ) ]
+melee_weapons = [ ExtResource( 4 ) ]
+enemy_types = {
+"melee": ExtResource( 3 ),
+"ranged": ExtResource( 5 )
+}
+weapon_need_melee_damage = 5.0
+weapon_need_ranged_damage = 5.0
+additional_weapons_count = 1
