@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=12 format=2]
+[gd_resource type="Resource" load_steps=23 format=2]
 
 [ext_resource path="res://mods-unpacked/QianMo-QMtato/content/characters/enemy/enemy_effect_1.gd" type="Script" id=1]
 [ext_resource path="res://items/characters/chunky/chunky_icon.png" type="Texture" id=2]
@@ -11,26 +11,49 @@
 [ext_resource path="res://items/characters/engineer/engineer_icon.png" type="Texture" id=9]
 [ext_resource path="res://entities/units/player/potato.png" type="Texture" id=10]
 [ext_resource path="res://items/characters/explorer/explorer_icon.png" type="Texture" id=11]
+[ext_resource path="res://items/characters/wildling/wildling_icon.png" type="Texture" id=12]
+[ext_resource path="res://items/characters/streamer/streamer_icon.png" type="Texture" id=13]
+[ext_resource path="res://items/characters/golem/golem_icon.png" type="Texture" id=14]
+[ext_resource path="res://items/characters/jack/jack_icon.png" type="Texture" id=15]
+[ext_resource path="res://items/characters/glutton/glutton_icon.png" type="Texture" id=16]
+[ext_resource path="res://items/characters/cyborg/cyborg_icon.png" type="Texture" id=17]
+[ext_resource path="res://items/characters/king/king_icon.png" type="Texture" id=18]
+[ext_resource path="res://items/characters/crazy/crazy_icon.png" type="Texture" id=19]
+[ext_resource path="res://items/characters/knight/knight_icon.png" type="Texture" id=20]
+[ext_resource path="res://items/characters/pacifist/pacifist_icon.png" type="Texture" id=21]
+[ext_resource path="res://items/characters/demon/demon_icon.png" type="Texture" id=22]
 
 [resource]
 script = ExtResource( 1 )
 key = "qmtato_empty"
-text_key = "CHARACTER_RENEGADE"
+text_key = "QMTATO_FIGHT_AGAINST_POTATOES"
 value = 1
 custom_key = ""
 storage_method = 0
 effect_sign = 3
 custom_args = [  ]
 taged_sprites = {
+"1": 1.0,
 "bull": ExtResource( 8 ),
+"crazy": ExtResource( 19 ),
+"cyborg": ExtResource( 17 ),
+"demon": ExtResource( 22 ),
 "dodge": ExtResource( 6 ),
 "empty_sprite": ExtResource( 10 ),
 "explorer": ExtResource( 11 ),
 "fisherman": ExtResource( 5 ),
+"glutton": ExtResource( 16 ),
+"golem": ExtResource( 14 ),
 "health": ExtResource( 2 ),
+"jack": ExtResource( 15 ),
+"king": ExtResource( 18 ),
+"knight": ExtResource( 20 ),
 "normal": ExtResource( 7 ),
+"pacifist": ExtResource( 21 ),
 "ranged": ExtResource( 4 ),
 "speed": ExtResource( 3 ),
-"summon": ExtResource( 9 )
+"streamer": ExtResource( 13 ),
+"summon": ExtResource( 9 ),
+"wildling": ExtResource( 12 )
 }
 random_chance = 0.7

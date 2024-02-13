@@ -38,6 +38,9 @@ func _on_qmtato_wave_start(player)->void :
 	else:
 		add_melee_weapon()
 	
+	var enemy_character_data = load("res://mods-unpacked/QianMo-QMtato/content/characters/enemy/enemy_character_data.tres")
+	enemy_character_data.icon = enemy_types[type]
+	
 	player._legs.hide()
 	
 	var melee_weapons_count: int = max(1, ceil(melee_damage / weapon_need_melee_damage))
