@@ -4,8 +4,8 @@ extends "res://mods-unpacked/QianMo-QMtato/content/effects/qmtato_effect_parent.
 export (PackedScene) var monitor_scene
 export (int) var bonus_armor_while_dashing: = 15
 export (int) var max_projectile: = 10
-export (Resource) var projectile_stats:Resource
-export (Resource) var exploding_stats:Resource
+export (Resource) var projectile_stats: Resource
+export (Resource) var exploding_stats: Resource
 
 var _monitor_instance = null
 

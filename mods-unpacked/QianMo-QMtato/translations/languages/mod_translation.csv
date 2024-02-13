@@ -124,3 +124,4 @@ QMTATO_MOVED_DETAILED_TEXT,原来的MOD页面的评论区出BUG了，不能正�
 QMTATO_MOVED_REDIRECT_BUTTON,跳转,Teleport
 QMTATO_MOVED_CONFIRM,确认,Confirm
 QMTATO_ADD_ENEMY_WEAPONS_EFFECT,当{2}>{3}时获得{6}把[color=purple]远程武器[/color]","否则获得{6}把[color=yellow]近战武器[/color]\n每{4} {3}获得一把[color=yellow]近战武器[/color] [+{8}]\n每{5} {2}获得一把[color=purple]远程武器[/color] [+{7}]\n[color=yellow]近战武器:[/color]\n{0}\n\n[color=purple]远程武器:[/color]\n{1}\n,Gain {6} [color=purple]Ranged Weapon[/color] while {2}>{3}","others gain {6} [color=yellow]Melee Weapon[/color]\nGain one [color=yellow]Melee Weapon[/color] for every {4} {3} [+{8}]\nGain one [color=purple]Ranged Weapon[/color] for every {5} {2} [+{7}]\n[color=yellow]Melee Weapon:[/color]\n{0}\n\n[color=purple]Ranged Weapon:[/color]\n{1}\n
+QMTATO_FIGHT_AGAINST_POTATOES,[color=red]与土豆对抗![/color],[color=red]Fight against potatoes![/color]

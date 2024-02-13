@@ -3,7 +3,7 @@ extends "res://items/global/effect.gd"
 
 var _player = null
 var _main = null
-var _connections_dict: = {} # should be {}
+var _connections_list: = [] # should be [source, signal_name, target, target_function]
 
 
 static func get_id()->String:
@@ -17,18 +17,27 @@ func apply()->void:
 func unapply()->void:
 	if RunData.is_connected("qmtato_on_wave_start", self, "_on_qmtato_wave_start_prefix"):
 		RunData.disconnect("qmtato_on_wave_start", self, "_on_qmtato_wave_start_prefix")
+	
+	for connection in _connections_list.duplicate():
+		disconnect_safely(connection[0], connection[1], connection[2], connection[3])
+	_connections_list.clear()
 
 
 func apply_connection()->void:
-	_player = TempStats.player
 	if not RunData.is_connected("qmtato_on_wave_start", self, "_on_qmtato_wave_start_prefix"):
 		RunData.connect("qmtato_on_wave_start", self, "_on_qmtato_wave_start_prefix")
 
 
-func _on_qmtato_wave_start_prefix(player):
-	yield(RunData.get_tree().create_timer(0.1), "timeout")
+func init_connection(player)->void :
+	_player = player
 	
-	if player and is_instance_valid(player):
+	apply_connection()
+
+
+func _on_qmtato_wave_start_prefix(player):
+#	yield(RunData.get_tree().create_timer(0.1), "timeout")
+#
+	if is_instance_valid(player):
 		_on_qmtato_wave_start(player)
 
 
@@ -39,6 +48,9 @@ func _on_qmtato_wave_start(player)->void:
 func connect_safely(obj, signal_name:String, target, call_back:String, binds:Array = [])->void:
 	if obj == null or not is_instance_valid(obj) or obj.is_connected(signal_name, target, call_back):
 		return
+	
+	_connections_list.append([obj, signal_name, target, call_back])
+	
 	if binds.size() == 0:
 		var _error = obj.connect(signal_name, target, call_back)
 	else:
@@ -48,6 +60,16 @@ func connect_safely(obj, signal_name:String, target, call_back:String, binds:Arr
 func disconnect_safely(obj, signal_name:String, target, call_back:String)->void:
 	if obj == null or not is_instance_valid(obj) or not obj.is_connected(signal_name, target, call_back):
 		return
+	
+	var remove_connection: int = -1
+	for i in _connections_list.size():
+		var connection = _connections_list[i]
+		if obj == connection[0] and signal_name == connection[1] and target == connection[2] and call_back == connection[3]:
+			remove_connection = i
+			break
+	if not remove_connection == -1:
+		_connections_list.remove(remove_connection)
+	
 	obj.disconnect(signal_name, target, call_back)
 
 

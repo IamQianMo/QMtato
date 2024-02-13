@@ -58,19 +58,22 @@ func _on_player_spawned(player):
 	if not is_instance_valid(player):
 		return
 	
+	if not get_tree().current_scene.get_path() == "/root/Main":
+		return
+	
 	_player = player
 	
 	for item in RunData.items:
 		for effect in item.effects:
 			if not effect.get_id().find("qmtato_effect") == -1:
-				effect.apply_connection()
+				effect.init_connection(player)
 				_applying_effects.append(effect)
 				if not _applied_effects.has(effect):
 					_applied_effects.append(effect)
 	for weapon in RunData.weapons:
 		for effect in weapon.effects:
 			if not effect.get_id().find("qmtato_effect") == -1:
-				effect.apply_connection()
+				effect.init_connection(player)
 				_applying_effects.append(effect)
 				if not _applied_effects.has(effect):
 					_applied_effects.append(effect)

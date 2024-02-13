@@ -1,15 +1,23 @@
 extends Node
 
 
-const MOD_DIR = "QianMo-QMtato/"
-const MOD_NAME = "QianMo-QMtato"
+const MOD_DIR: = "QianMo-QMtato/"
+const MOD_NAME: = "QianMo-QMtato"
+const CONTENT_DATA_PATHS: = [
+	"content_data/ghost_smg_content.tres",
+	"content_data/face_puncher_content.tres",
+	"content_data/yongchun_fist_content.tres",
+	"content_data/terra_blade_content.tres",
+	"content_data/luoyang_shovel_content.tres",
+	"content_data/qmtato_items_content.tres",
+	"content_data/qmtato_preview_starting_weapons.tres",
+]
 
 var dir = ""
 var ext_dir = ""
 var trans_dir = ""
 var QmtatoMainEventListener = null
 var qmtato_content_data = null
-var temp_content_data = null
 
 var mod_effects: = [
 	preload("res://mods-unpacked/QianMo-QMtato/content/effects/fruit_trees/fruit_tree_effect.gd"),
@@ -17,7 +25,7 @@ var mod_effects: = [
 ]
 
 
-func _init(_modLoader = ModLoader):
+func _init():
 	ModLoaderLog.info("Init", MOD_NAME)
 	
 	# ModLoader 6.0
@@ -50,50 +58,28 @@ func _ready():
 	
 	var ContentLoader = get_node("/root/ModLoader/Darkly77-ContentLoader/ContentLoader")
 	
-	ContentLoader.load_data(dir + "content_data/ghost_smg_content.tres", MOD_NAME)
-	temp_content_data = load(dir + "content_data/ghost_smg_content.tres")
-	qmtato_content_data = temp_content_data.duplicate()
-	qmtato_content_data.weapons_characters.clear()
-	_add_content_items(qmtato_content_data, temp_content_data)
+	qmtato_content_data = load("res://mods-unpacked/Darkly77-ContentLoader/content_data.gd").new()
+	qmtato_content_data.weapons = []
 	
-	ContentLoader.load_data(dir + "content_data/face_puncher_content.tres", MOD_NAME)
-	temp_content_data = load(dir + "content_data/face_puncher_content.tres")
-	_add_content_items(qmtato_content_data, temp_content_data)
+	for path in CONTENT_DATA_PATHS:
+		var absolute_path: String = dir + path
+		ContentLoader.load_data(absolute_path, MOD_NAME)
+		_add_contents_by_path(qmtato_content_data, absolute_path)
 	
-	ContentLoader.load_data(dir + "content_data/yongchun_fist_content.tres", MOD_NAME)
-	temp_content_data = load(dir + "content_data/yongchun_fist_content.tres")
-	_add_content_items(qmtato_content_data, temp_content_data)
-	
-	ContentLoader.load_data(dir + "content_data/terra_blade_content.tres", MOD_NAME)
-	temp_content_data = load(dir + "content_data/terra_blade_content.tres")
-	_add_content_items(qmtato_content_data, temp_content_data)
-	
-	ContentLoader.load_data(dir + "content_data/luoyang_shovel_content.tres", MOD_NAME)
-	temp_content_data = load(dir + "content_data/luoyang_shovel_content.tres")
-	_add_content_items(qmtato_content_data, temp_content_data)
-	
-	ContentLoader.load_data(dir + "content_data/qmtato_items_content.tres", MOD_NAME)
-	temp_content_data = load(dir + "content_data/qmtato_items_content.tres")
-	_add_content_items(qmtato_content_data, temp_content_data)
-	
-	# since Brotato 1.0 START
-	ContentLoader.load_data(dir + "content_data/qmtato_preview_content_data.tres", MOD_NAME)
-	temp_content_data = load(dir + "content_data/qmtato_preview_content_data.tres")
-	_add_content_items(qmtato_content_data, temp_content_data)
-	
-	temp_content_data = load(dir + "content_data/qmtato_preview_starting_weapons.tres")
-	for i in temp_content_data.weapons.size():
-		for character in temp_content_data.weapons_characters[i]:
-			character.starting_weapons.push_back(temp_content_data.weapons[i])
-	# since Brotato 1.0 END
-	
+	# Prevent crash when there is no mod weapon hash
 	_setup_item_service(qmtato_content_data)
 	
 	var _error_progress_data_connect = ProgressData.connect("ready", self, "_on_progress_data_ready")
 
 
-func _setup_item_service(contents)->void :
-	ItemService.weapons.append_array(contents.weapons)
+func _add_contents_by_path(content_data: Resource, from_path: String)->void :
+	var from_content_data: Resource = load(from_path)
+	if not from_content_data == null:
+		content_data.weapons.append_array(from_content_data.weapons)
+
+
+func _setup_item_service(content_data: Resource)->void :
+	ItemService.weapons.append_array(content_data.weapons)
 #	ItemService.items.append_array(contents.items)
 #	ItemService.characters.append_array(contents.characters)
 #	ItemService.sets.append_array(contents.sets)                  # @since 2.1.0
@@ -117,7 +103,7 @@ func _on_tiers_data_reseted()->void :
 func _on_progress_data_ready()->void :
 	call_deferred("check_mod_contents", true)
 	
-	# avoid crash when resume games with mod weapons save files
+	# Prevent crash when resume games with mod weapons save files
 	call_deferred("_remove_duplicated_weapons")
 
 
@@ -126,20 +112,21 @@ func _remove_duplicated_weapons()->void :
 	for weapon in qmtato_content_data.weapons:
 		ids.push_back(weapon.my_id)
 	
+	var weapons: Array = ItemService.weapons
 	var weapon_dict: = {}
-	for weapon in ItemService.weapons:
+	for weapon in weapons:
 		if weapon.my_id in ids:
 			if weapon_dict.has(weapon):
 				weapon_dict[weapon] += 1
 			else:
 				weapon_dict[weapon] = 1
-
+	
 	for weapon in weapon_dict.keys():
 		var count = weapon_dict[weapon]
 		if count > 1:
 			var diff:int = count - 1
 			for i in diff:
-				ItemService.weapons.erase(weapon)
+				weapons.erase(weapon)
 
 
 func check_mod_contents(is_init = false)->void :

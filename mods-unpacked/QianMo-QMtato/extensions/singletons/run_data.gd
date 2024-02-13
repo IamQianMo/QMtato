@@ -25,7 +25,6 @@ func init_effects()->Dictionary:
 		"low_health_bonus": {},
 		"low_health_bonus_calculated": {},
 		"character_orchard_man": 0,
-		"dig_speed": 0,
 	}
 	var vanilla_effects = .init_effects()
 	
@@ -37,6 +36,7 @@ func init_stats(all_null_values:bool = false)->Dictionary:
 	var new_stats = {
 		"max_stats_difference": 0,
 		"bonus_damage_by_stats_chance": 0,
+		"dig_speed": 0,
 	}
 	var vanilla_stats = .init_stats(all_null_values)
 	
